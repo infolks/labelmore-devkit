@@ -1,0 +1,38 @@
+{
+  "name": "@infolks/labelmore-devkit",
+  "version": "1.0.0",
+  "description": "Development kit for labelmore developers.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "copy ./src/types/*.d.ts ./dist/types && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infolks/labelmore-devkit.git"
+  },
+  "keywords": [
+    "devkit",
+    "labelmore",
+    "infolks",
+    "annotation",
+    "ml"
+  ],
+  "author": "infolks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/infolks/labelmore-devkit/issues"
+  },
+  "homepage": "https://github.com/infolks/labelmore-devkit#readme",
+  "devDependencies": {
+    "@types/node": "^12.0.2",
+    "@types/paper": "^0.11.13",
+    "copy": "^0.3.2",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "@types/electron": "^1.6.10",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1"
+  }
+}
