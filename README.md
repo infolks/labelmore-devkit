@@ -1,2 +1,2 @@
 # labelmore-devkit
-Development Kit for labelmore developmers
+Development Kit for labelmore developers
