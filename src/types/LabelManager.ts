@@ -1,6 +1,7 @@
 import Vue, { VueConstructor } from "vue";
-import { LabelClass, Label, LabelType } from "../modules/core/labels";
+import { LabelClass, Label } from "../modules/core/labels";
 import { PathItem } from "paper";
+import { LabelType } from "../modules/base/LabelType";
 
 export interface LabelManager {
 
@@ -30,7 +31,7 @@ export interface LabelManager {
      * @param labelType the type to register.
      * @note The namespace types.default.* are reserved
      */
-    register(name: string, labelType: LabelType)
+    register(name: string, labelType: LabelType): void
 
     /**
      * Check whether a label type is already registered
@@ -55,6 +56,12 @@ export interface LabelManager {
      * @param id id of the label class
      */
     getClass(id: string): LabelClass
+
+    /**
+     * Get name of the label based on the types name format
+     * @param label the label of which name is to be found
+     */
+    getName(label: Label): string
 
     /**
      * Add label to the frame

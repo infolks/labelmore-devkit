@@ -1,7 +1,5 @@
-/// <reference types="node" />
-
 import { OpenDialogOptions, FileFilter } from "electron";
-import Vue, {ComponentOptions} from 'vue'
+import Vue from 'vue'
 
 export interface FileManager {
 
