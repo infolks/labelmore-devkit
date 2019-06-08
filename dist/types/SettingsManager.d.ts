@@ -24,7 +24,7 @@ export interface SettingsManager {
      * Get a corresponding settings
      * @param name name of the settings
      */
-    getPackedSettings(name: string): any;
+    getSettings(name: string): any;
     /**
      * Get an interface from name
      * @param name name used to register
