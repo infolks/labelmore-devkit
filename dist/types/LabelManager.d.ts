@@ -1,4 +1,3 @@
-import Vue from "vue";
 import { LabelClass, Label } from "../modules/core/labels";
 import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
@@ -97,14 +96,4 @@ export interface LabelManager {
      * @param id id of the class
      */
     selectClass(id: string): void;
-}
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        labeller?: LabelManager;
-    }
-}
-declare module "vue/types/vue" {
-    interface Vue {
-        $labeller: LabelManager;
-    }
 }

@@ -119,17 +119,3 @@ export interface LabelManager {
     selectClass(id: string): void
 
 }
-
-// extend vue
-
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        labeller?: LabelManager
-    }
-}
-
-declare module "vue/types/vue" {
-    interface Vue {
-        $labeller: LabelManager
-    }
-}

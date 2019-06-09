@@ -1,5 +1,5 @@
 import { Interface, InterfaceInfo } from "../modules/base/Interface";
-
+import Vue from 'vue'
 export interface SettingsManager {
 
     /**
@@ -74,4 +74,17 @@ export interface SettingsManager {
      */
     save(): void
 
+}
+
+
+declare module "vue/types/options" {
+    interface ComponentOptions<V extends Vue> {
+        settings?: SettingsManager
+    }
+}
+
+declare module "vue/types/vue" {
+    interface Vue {
+        $settings: SettingsManager
+    }
 }

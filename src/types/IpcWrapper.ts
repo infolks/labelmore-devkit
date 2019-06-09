@@ -33,18 +33,3 @@ export interface IpcWrapper {
      */
     once(channel: string, callback: (event: any, payload: any) => void): void
 }
-
-
-// extend vue
-
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        ipc?: IpcWrapper;
-    }
-}
-
-declare module "vue/types/vue" {
-    interface Vue {
-        $ipc: IpcWrapper;
-    }
-}

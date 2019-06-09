@@ -83,14 +83,14 @@ export interface FileFilters {
 
 // extend vue
 
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        files?: FileManager;
-    }
-}
+// declare module "vue/types/options" {
+//     interface ComponentOptions<V extends Vue> {
+//         files?: FileManager;
+//     }
+// }
 
-declare module "vue/types/vue" {
-    interface Vue {
-        $files: FileManager;
-    }
-}
+// declare module "vue/types/vue" {
+//     interface Vue {
+//         $files: FileManager;
+//     }
+// }

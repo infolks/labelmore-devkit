@@ -1,6 +1,5 @@
 /// <reference types="node" />
 import { OpenDialogOptions, FileFilter } from "electron";
-import Vue from 'vue';
 export interface FileManager {
     /**
      * List files in a directory
@@ -72,14 +71,4 @@ export interface FileManager {
 export interface FileFilters {
     file: boolean;
     extensions: string[];
-}
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        files?: FileManager;
-    }
-}
-declare module "vue/types/vue" {
-    interface Vue {
-        $files: FileManager;
-    }
 }

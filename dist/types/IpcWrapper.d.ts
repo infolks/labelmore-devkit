@@ -1,5 +1,4 @@
 import { IpcRenderer } from "electron";
-import Vue from 'vue';
 export interface IpcWrapper {
     ipc: IpcRenderer;
     /**
@@ -26,14 +25,4 @@ export interface IpcWrapper {
      * @param callback payload to be passed with the event
      */
     once(channel: string, callback: (event: any, payload: any) => void): void;
-}
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        ipc?: IpcWrapper;
-    }
-}
-declare module "vue/types/vue" {
-    interface Vue {
-        $ipc: IpcWrapper;
-    }
 }
