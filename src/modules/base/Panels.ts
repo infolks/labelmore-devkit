@@ -8,18 +8,16 @@ export abstract class Panel {
 
     public readonly title: string;
     public readonly icon: string;
-    public readonly component: VueConstructor<Vue>;
+    public readonly component: string;
     public readonly options: PanelOptions = {
         showTitle: true
     }
-
-    abstract get key(): string;
 
 }
 
 export interface PanelInfo {
     name: string
-    key: string
+    component: string
     title: string
     icon: string
     options: PanelOptions

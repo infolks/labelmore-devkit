@@ -6,17 +6,13 @@ export abstract class Interface {
     public readonly title: string;
     public readonly icon: string;
 
-    public readonly component: VueConstructor<Vue>;
+    public readonly component: string;
 
-    get key(): string {
-
-        return 'app-' + this.name.toLowerCase().replace(/[^a-b]+/, '-')
-    }
 }
 
 export interface InterfaceInfo {
     name: string
     title: string
     icon: string
-    key: string
+    component: string
 }
