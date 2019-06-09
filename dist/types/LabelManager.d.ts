@@ -55,7 +55,7 @@ export interface LabelManager {
      * Add label to the frame
      * @param label label to be added
      */
-    add(label: Label): void;
+    add(label: Partial<Label>): void;
     /**
      * Remove a label from the frame
      * @param id id of the label to be removed
