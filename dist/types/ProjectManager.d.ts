@@ -2,7 +2,6 @@ import { Frame, Project } from "../modules/core/project";
 import { Wizard, WizardType, WizardInfo } from "../modules/base/Wizard";
 import { Source, SourceInfo } from "../modules/base/Source";
 import { Encoder, EncoderInfo } from "../modules/base/Encoder";
-import Vue from "vue";
 export interface ProjectManager {
     /**
      * current frame of the project
@@ -102,14 +101,4 @@ export interface ProjectManager {
      *
      */
     loadFrame(index: number, allowExport: boolean): Promise<void>;
-}
-declare module "vue/types/options" {
-    interface ComponentOptions<V extends Vue> {
-        projects?: ProjectManager;
-    }
-}
-declare module "vue/types/vue" {
-    interface Vue {
-        $projects: ProjectManager;
-    }
 }
