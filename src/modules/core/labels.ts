@@ -18,7 +18,7 @@ export interface Keypoint {
     classes: string[];
 }
 
-
 export const DEFAULT_LABEL_TYPES = {
-    boundbox: 'bndbox'
+    boundbox: 'types.default.bndbox',
+    contour: 'types.default.contour'
 }

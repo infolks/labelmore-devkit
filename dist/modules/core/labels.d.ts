@@ -15,4 +15,5 @@ export interface Keypoint {
 }
 export declare const DEFAULT_LABEL_TYPES: {
     boundbox: string;
+    contour: string;
 };
