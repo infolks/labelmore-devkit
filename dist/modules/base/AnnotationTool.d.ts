@@ -14,7 +14,7 @@ export declare abstract class AnnotationTool extends Tool {
     readonly title: string;
     readonly icon: string;
     readonly cursor: string;
-    private lastEvent;
+    private _lastEvent;
     protected options: Partial<AnnotationToolOptions>;
     onMouseWheel: any;
     constructor(workspace: WorkspaceManager, settings: SettingsManager);

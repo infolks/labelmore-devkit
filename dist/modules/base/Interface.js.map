@@ -1,1 +1,1 @@
-{"version":3,"file":"Interface.js","sourceRoot":"","sources":["../../../src/modules/base/Interface.ts"],"names":[],"mappings":";;AAEA,MAAsB,SAAS;IAQ3B,IAAI,GAAG;QAEH,OAAO,MAAM,GAAG,IAAI,CAAC,IAAI,CAAC,WAAW,EAAE,CAAC,OAAO,CAAC,SAAS,EAAE,GAAG,CAAC,CAAA;IACnE,CAAC;CACJ;AAZD,8BAYC"}
+{"version":3,"file":"Interface.js","sourceRoot":"","sources":["../../../src/modules/base/Interface.ts"],"names":[],"mappings":";;AAEA,MAAsB,SAAS;CAQ9B;AARD,8BAQC"}

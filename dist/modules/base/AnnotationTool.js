@@ -67,7 +67,7 @@ class AnnotationTool extends paper_1.Tool {
         };
         // Handles Mousemove
         this.onMouseMove = (event) => {
-            this.lastEvent = event;
+            this._lastEvent = event;
             // limit to artboard
             if (this.options.limitToArtboard) {
                 event.point = this.limitToArtboard(event.point);
@@ -79,12 +79,12 @@ class AnnotationTool extends paper_1.Tool {
         };
         // Handles MouseWheel
         this.onMouseWheel = (event) => {
-            if (this.lastEvent) {
+            if (this._lastEvent) {
                 event.type = 'mousewheel';
-                event.modifiers.space = this.lastEvent.modifiers.space;
-                event.modifiers.command = this.lastEvent.modifiers.command;
-                event.lastPoint = this.lastEvent.lastPoint;
-                event.item = this.lastEvent.item;
+                event.modifiers.space = this._lastEvent.modifiers.space;
+                event.modifiers.command = this._lastEvent.modifiers.command;
+                event.lastPoint = this._lastEvent.lastPoint;
+                event.item = this._lastEvent.item;
             }
             // [+] ZOOM BEGINS
             let zoom = this.workspace.zoom;
