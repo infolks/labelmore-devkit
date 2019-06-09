@@ -99,7 +99,7 @@ export interface LabelManager {
      * Move label down by one level
      * @param id id of the label. defaults to selected label id
      */
-    fall(id: number): void
+    fall(id?: number): void
 
     /**
      * Select a label
