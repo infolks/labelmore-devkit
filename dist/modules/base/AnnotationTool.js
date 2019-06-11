@@ -5,40 +5,41 @@ exports.DEFAULT_ANNOTATION_TOOL_OPTIONS = {
     showGuide: true,
     limitToArtboard: false
 };
-class AnnotationTool extends paper_1.Tool {
-    constructor(workspace, settings) {
-        super();
+class AnnotationTool {
+    constructor(workspace, settings, paper) {
         this.workspace = workspace;
         this.settings = settings;
+        this.paper = paper;
         this.cursor = 'default';
         this.options = {};
+        this.tool = new this.paper.Tool();
         // fill options
         this.options = Object.assign({}, exports.DEFAULT_ANNOTATION_TOOL_OPTIONS, this.options);
         // ==============
         //  STATE EVENTS
         // ==============
-        this.on('activate', () => {
+        this.tool.on('activate', () => {
             this.options.showGuide ? this.workspace.showGuide() : this.workspace.hideGuide();
             this.workspace.cursor = this.cursor;
             this.onactivate();
         });
-        this.on('deactivate', () => {
+        this.tool.on('deactivate', () => {
             this.ondeactivate();
         });
         // ============
         //  KEY EVENTS
         // ============
-        this.onKeyUp = (event) => {
+        this.tool.onKeyUp = (event) => {
             this.onkeyup(event);
         };
-        this.onKeyDown = (event) => {
+        this.tool.onKeyDown = (event) => {
             this.onkeydown(event);
         };
         // ==============
         //  MOUSE EVENTS
         // ==============
         // Handle
-        this.onMouseDown = (event) => {
+        this.tool.onMouseDown = (event) => {
             // limit to artboard
             if (this.options.limitToArtboard) {
                 event.point = this.limitToArtboard(event.point);
@@ -46,7 +47,7 @@ class AnnotationTool extends paper_1.Tool {
             this.onmousedown(event);
         };
         // Handle mouse up
-        this.onMouseUp = (event) => {
+        this.tool.onMouseUp = (event) => {
             // limit to artboard
             if (this.options.limitToArtboard) {
                 event.point = this.limitToArtboard(event.point);
@@ -54,7 +55,7 @@ class AnnotationTool extends paper_1.Tool {
             this.onmouseup(event);
         };
         // Handles Mousedrag
-        this.onMouseDrag = (event) => {
+        this.tool.onMouseDrag = (event) => {
             // limit to artboard
             if (this.options.limitToArtboard) {
                 event.downPoint = this.limitToArtboard(event.downPoint);
@@ -66,7 +67,7 @@ class AnnotationTool extends paper_1.Tool {
             this.onmousedrag(event);
         };
         // Handles Mousemove
-        this.onMouseMove = (event) => {
+        this.tool.onMouseMove = (event) => {
             this._lastEvent = event;
             // limit to artboard
             if (this.options.limitToArtboard) {
@@ -103,6 +104,12 @@ class AnnotationTool extends paper_1.Tool {
             // call tools mousewheel event
             this.onmousewheel(event);
         };
+    }
+    /**
+     * Activate the tool
+     */
+    activate() {
+        this.tool.activate();
     }
     /**
      * Handles events on tool activation

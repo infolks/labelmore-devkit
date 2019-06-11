@@ -1,4 +1,4 @@
-import { Point, KeyEvent, ToolEvent, Tool } from "paper";
+import { Point, KeyEvent, ToolEvent, PaperScope } from "paper";
 import { WorkspaceManager } from "../../types/WorkspaceManager";
 import { SettingsManager } from "../../types/SettingsManager";
 import { WheelEvent } from "./Events";
@@ -7,17 +7,23 @@ export interface AnnotationToolOptions {
     limitToArtboard: boolean;
 }
 export declare const DEFAULT_ANNOTATION_TOOL_OPTIONS: AnnotationToolOptions;
-export declare abstract class AnnotationTool extends Tool {
+export declare abstract class AnnotationTool {
     protected workspace: WorkspaceManager;
     protected settings: SettingsManager;
+    protected paper: PaperScope;
     readonly name: string;
     readonly title: string;
     readonly icon: string;
     readonly cursor: string;
+    private tool;
     private _lastEvent;
     protected options: Partial<AnnotationToolOptions>;
     onMouseWheel: any;
-    constructor(workspace: WorkspaceManager, settings: SettingsManager);
+    constructor(workspace: WorkspaceManager, settings: SettingsManager, paper: PaperScope);
+    /**
+     * Activate the tool
+     */
+    activate(): void;
     /**
      * Handles events on tool activation
      */
