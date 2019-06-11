@@ -174,6 +174,13 @@ export abstract class AnnotationTool {
     }
 
     /**
+     * Emit an event
+     */
+    emit(type: string, event: any) {
+        this.tool.emit(type, event)
+    }
+
+    /**
      * Handles events on tool activation
      */
     onactivate() {}

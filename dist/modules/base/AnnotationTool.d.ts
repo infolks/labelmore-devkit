@@ -25,6 +25,10 @@ export declare abstract class AnnotationTool {
      */
     activate(): void;
     /**
+     * Emit an event
+     */
+    emit(type: string, event: any): void;
+    /**
      * Handles events on tool activation
      */
     onactivate(): void;

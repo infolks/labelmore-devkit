@@ -112,6 +112,12 @@ class AnnotationTool {
         this.tool.activate();
     }
     /**
+     * Emit an event
+     */
+    emit(type, event) {
+        this.tool.emit(type, event);
+    }
+    /**
      * Handles events on tool activation
      */
     onactivate() { }
