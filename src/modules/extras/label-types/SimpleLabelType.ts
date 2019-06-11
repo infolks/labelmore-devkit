@@ -45,7 +45,7 @@ export abstract class SimpleLabelType extends BasicLabelType {
                 const cursor = (<Control>control).cursor || 'pointer'
                 let controlBounds: Rectangle = control.bounds || new Rectangle(controlPoint, new Size(0,0))
     
-                const controlPath = new Path.Circle(thumbPoint, controlRadius*ratio)
+                const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius*ratio)
                 controlPath.style = path.style
     
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL

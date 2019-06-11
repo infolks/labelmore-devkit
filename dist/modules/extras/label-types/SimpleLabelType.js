@@ -29,7 +29,7 @@ class SimpleLabelType extends BasicLabelType_1.BasicLabelType {
                 const thumbPoint = control.thumb || controlPoint;
                 const cursor = control.cursor || 'pointer';
                 let controlBounds = control.bounds || new paper_1.Rectangle(controlPoint, new paper_1.Size(0, 0));
-                const controlPath = new paper_1.Path.Circle(thumbPoint, controlRadius * ratio);
+                const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius * ratio);
                 controlPath.style = path.style;
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL;
                 // UPDATE CONTROLS ON PATH CHANGE
