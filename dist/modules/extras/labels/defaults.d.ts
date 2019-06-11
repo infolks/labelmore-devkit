@@ -18,6 +18,6 @@ export interface ContourLabel extends Label {
         points: {
             x: number;
             y: number;
-        };
+        }[];
     };
 }
