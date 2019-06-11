@@ -1,4 +1,4 @@
-import { Group, PathItem } from "paper";
+import { Group, PathItem, PaperScope } from "paper";
 import { LabelManager } from "../../../types/LabelManager";
 import { WorkspaceManager } from "../../../types/WorkspaceManager";
 import { SettingsManager } from "../../../types/SettingsManager";
@@ -14,10 +14,11 @@ export declare abstract class BasicLabelType extends LabelType {
     protected labeller: LabelManager;
     protected workspace: WorkspaceManager;
     protected settings: SettingsManager;
+    protected paper: PaperScope;
     protected options: Partial<BasicLabelTypeOptions>;
     protected readonly defaultStrokeWidth: number;
     protected readonly fillColorAlpha: number;
-    constructor(labeller: LabelManager, workspace: WorkspaceManager, settings: SettingsManager);
+    constructor(labeller: LabelManager, workspace: WorkspaceManager, settings: SettingsManager, paper: PaperScope);
     /**
      * Converting label to vector
      * @param label label to be converted to a vector

@@ -8,11 +8,12 @@ exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS = {
     hideTagOnSelect: true
 };
 class BasicLabelType extends LabelType_1.LabelType {
-    constructor(labeller, workspace, settings) {
+    constructor(labeller, workspace, settings, paper) {
         super();
         this.labeller = labeller;
         this.workspace = workspace;
         this.settings = settings;
+        this.paper = paper;
         this.options = {};
         this.defaultStrokeWidth = 1;
         this.fillColorAlpha = 0.3;
@@ -66,7 +67,7 @@ class BasicLabelType extends LabelType_1.LabelType {
     showLabelTag(label, path, ratio) {
         const class_ = this.labeller.getClass(label.class_id);
         // create a text at a random point
-        const text = new paper_1.PointText(new paper_1.Point(50, 50));
+        const text = new this.paper.PointText(new paper_1.Point(50, 50));
         // set content ant style
         text.content = this.tagContent(label, class_);
         text.style = {
@@ -77,11 +78,11 @@ class BasicLabelType extends LabelType_1.LabelType {
         // get the bounds of the text and offset it
         const bounds = text.bounds.scale(1.25);
         // to create the background draw a rectangle
-        const box = new paper_1.Path.Rectangle(bounds, 0);
+        const box = new this.paper.Path.Rectangle(bounds, 0);
         const color = new paper_1.Color(class_.color);
         box.fillColor = color;
         // combine the background and text to make tag
-        const tag = new paper_1.Group([box, text]);
+        const tag = new this.paper.Group([box, text]);
         // move the tag to specified position
         const posit = this.options.labelTagPosition || 'topLeft';
         tag.bounds[posit] = path.bounds[posit];
