@@ -1,4 +1,4 @@
-import { Group, Color, Path, Point, PathItem, Item, PointText } from "paper";
+import { Group, Color, Path, Point, PathItem, Item, PointText, PaperScope } from "paper";
 import { LabelManager } from "../../../types/LabelManager";
 import { WorkspaceManager } from "../../../types/WorkspaceManager";
 import { SettingsManager } from "../../../types/SettingsManager";
@@ -24,7 +24,11 @@ export abstract class BasicLabelType extends LabelType {
     protected readonly defaultStrokeWidth: number = 1
     protected readonly fillColorAlpha: number = 0.3
 
-    constructor(protected labeller: LabelManager, protected workspace: WorkspaceManager, protected settings: SettingsManager) {
+    constructor(
+        protected labeller: LabelManager, 
+        protected workspace: WorkspaceManager, 
+        protected settings: SettingsManager, 
+        protected paper: PaperScope) {
         super()
 
         this.options = {
@@ -105,7 +109,7 @@ export abstract class BasicLabelType extends LabelType {
         const class_ = this.labeller.getClass(label.class_id)
 
         // create a text at a random point
-        const text = new PointText(new Point(50,50))
+        const text = new this.paper.PointText(new Point(50,50))
 
         // set content ant style
         text.content = this.tagContent(label, class_)
@@ -119,14 +123,14 @@ export abstract class BasicLabelType extends LabelType {
         const bounds = text.bounds.scale(1.25)
 
         // to create the background draw a rectangle
-        const box = new Path.Rectangle(bounds, 0)
+        const box = new this.paper.Path.Rectangle(bounds, 0)
 
         const color = new Color(class_.color)
 
         box.fillColor = color
 
         // combine the background and text to make tag
-        const tag = new Group([box, text])
+        const tag = new this.paper.Group([box, text])
 
         // move the tag to specified position
         const posit = this.options.labelTagPosition || 'topLeft'

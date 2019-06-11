@@ -1,4 +1,4 @@
-import { Point, KeyEvent, ToolEvent, Tool } from "paper";
+import { Point, KeyEvent, ToolEvent, Tool, PaperScope } from "paper";
 import { WorkspaceManager } from "../../types/WorkspaceManager";
 import { SettingsManager } from "../../types/SettingsManager";
 import { WheelEvent } from "./Events";
@@ -13,12 +13,14 @@ export const DEFAULT_ANNOTATION_TOOL_OPTIONS: AnnotationToolOptions = {
     limitToArtboard: false
 }
 
-export abstract class AnnotationTool extends Tool {
+export abstract class AnnotationTool {
     
     public readonly name: string;
     public readonly title: string;
     public readonly icon: string;
     public readonly cursor: string = 'default';
+
+    private tool: Tool;
 
     private _lastEvent: ToolEvent
 
@@ -26,8 +28,9 @@ export abstract class AnnotationTool extends Tool {
 
     public onMouseWheel: any;
 
-    constructor(protected workspace: WorkspaceManager, protected settings: SettingsManager) {
-        super()
+    constructor(protected workspace: WorkspaceManager, protected settings: SettingsManager, protected paper: PaperScope) {
+
+        this.tool = new this.paper.Tool()
 
         // fill options
         this.options = {
@@ -38,7 +41,7 @@ export abstract class AnnotationTool extends Tool {
         // ==============
         //  STATE EVENTS
         // ==============
-        this.on('activate', () => {
+        this.tool.on('activate', () => {
             this.options.showGuide ? this.workspace.showGuide() : this.workspace.hideGuide()
 
             this.workspace.cursor = this.cursor
@@ -46,7 +49,7 @@ export abstract class AnnotationTool extends Tool {
             this.onactivate()
         })
 
-        this.on('deactivate', () => {
+        this.tool.on('deactivate', () => {
 
             this.ondeactivate()
 
@@ -55,10 +58,10 @@ export abstract class AnnotationTool extends Tool {
         // ============
         //  KEY EVENTS
         // ============
-        this.onKeyUp = (event) => {
+        this.tool.onKeyUp = (event) => {
             this.onkeyup(event)
         }
-        this.onKeyDown = (event) => {
+        this.tool.onKeyDown = (event) => {
             this.onkeydown(event)
         }
 
@@ -67,7 +70,7 @@ export abstract class AnnotationTool extends Tool {
         // ==============
 
         // Handle
-        this.onMouseDown = (event) => {
+        this.tool.onMouseDown = (event) => {
 
             // limit to artboard
             if (this.options.limitToArtboard) {
@@ -79,7 +82,7 @@ export abstract class AnnotationTool extends Tool {
         }
 
         // Handle mouse up
-        this.onMouseUp = (event) => {
+        this.tool.onMouseUp = (event) => {
 
             // limit to artboard
             if (this.options.limitToArtboard) {
@@ -90,7 +93,7 @@ export abstract class AnnotationTool extends Tool {
         }
 
         // Handles Mousedrag
-        this.onMouseDrag = (event) => {
+        this.tool.onMouseDrag = (event) => {
 
             // limit to artboard
             if (this.options.limitToArtboard) {
@@ -105,7 +108,7 @@ export abstract class AnnotationTool extends Tool {
         }
 
         // Handles Mousemove
-        this.onMouseMove = (event) => {
+        this.tool.onMouseMove = (event) => {
 
             this._lastEvent = event
 
@@ -161,6 +164,20 @@ export abstract class AnnotationTool extends Tool {
 
         }
 
+    }
+
+    /**
+     * Activate the tool
+     */
+    activate() {
+        this.tool.activate()
+    }
+
+    /**
+     * Emit an event
+     */
+    emit(type: string, event: any) {
+        this.tool.emit(type, event)
     }
 
     /**
