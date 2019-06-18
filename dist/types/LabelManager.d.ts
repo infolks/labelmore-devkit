@@ -1,4 +1,4 @@
-import { LabelClass, Label } from "../modules/core/labels";
+import { LabelClass, Label, Keypoint } from "../modules/core/labels";
 import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 export interface LabelManager {
@@ -6,6 +6,10 @@ export interface LabelManager {
      * The current selected label class
      */
     class: LabelClass;
+    /**
+     * The current selected keypoint
+     */
+    keypoint: Keypoint;
     /**
      * The current selected label
      */
@@ -18,6 +22,10 @@ export interface LabelManager {
      * All label classes for the current project
      */
     classes: LabelClass[];
+    /**
+     * All keypoints available for the current class
+     */
+    keypoints: Keypoint[];
     /**
      * Register a new label type
      * @param name unque name used to identify the type (use namespaces for uniqueness like author.category.type)
@@ -96,4 +104,9 @@ export interface LabelManager {
      * @param id id of the class
      */
     selectClass(id: string): void;
+    /**
+     * Select a keypoint
+     * @param name name of the keypoint
+     */
+    selectKeypoint(name: string): void;
 }
