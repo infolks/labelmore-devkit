@@ -9,6 +9,7 @@ export { ShortcutManager } from './types/ShortcutManager';
 export { ToolManager } from './types/ToolManager';
 export { UIManager } from './types/UIManager';
 export { WorkspaceManager } from './types/WorkspaceManager';
+export { ProcessManager } from './types/ProcessManager';
 export { AnnotationTool, AnnotationToolInfo, AnnotationToolOptions, DEFAULT_ANNOTATION_TOOL_OPTIONS } from './modules/base/AnnotationTool';
 export { FileWriteInfo, Encoder, EncoderInfo } from './modules/base/Encoder';
 export { WheelEvent } from './modules/base/Events';

@@ -12,6 +12,7 @@ export {ShortcutManager} from './types/ShortcutManager'
 export {ToolManager} from './types/ToolManager'
 export {UIManager} from './types/UIManager'
 export {WorkspaceManager} from './types/WorkspaceManager'
+export {ProcessManager} from './types/ProcessManager'
 
 // base
 export {AnnotationTool, AnnotationToolInfo, AnnotationToolOptions, DEFAULT_ANNOTATION_TOOL_OPTIONS} from './modules/base/AnnotationTool'
