@@ -1,4 +1,4 @@
-import { LabelClass, Label, Keypoint } from "../modules/core/labels";
+import { LabelClass, Label, Keypoint, Attribute } from "../modules/core/labels";
 import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 
@@ -33,6 +33,11 @@ export interface LabelManager {
      * All keypoints available for the current class
      */
     keypoints: Keypoint[]
+
+    /**
+     * All attributes available for the current class
+     */
+    attributes: Attribute[]
 
     /**
      * Register a new label type

@@ -5,13 +5,15 @@ export interface WizardOptions {
     allowToolSelection: boolean;
     allowLabelClassCreation: boolean;
     allowKeypointCreation: boolean;
+    allowPanelSelection: boolean;
 }
 
 export const DEFAULT_WIZARD_OPTIONS = {
     allowOutputSelection: true,
     allowToolSelection: true,
     allowLabelClassCreation: true,
-    allowKeypointCreation: false
+    allowKeypointCreation: true,
+    allowPanelSelection: true
 }
 
 export type WizardType = 'creator'|'importer';

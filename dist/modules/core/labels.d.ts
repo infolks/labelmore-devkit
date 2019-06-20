@@ -9,6 +9,15 @@ export interface LabelClass {
     name: string;
     color: string;
 }
+export interface Attribute {
+    name: string;
+    values: string[];
+    classes: string[];
+}
+export interface AttributeValue {
+    name: string;
+    values: string[];
+}
 export interface Keypoint {
     name: string;
     classes: string[];

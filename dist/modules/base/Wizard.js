@@ -4,7 +4,8 @@ exports.DEFAULT_WIZARD_OPTIONS = {
     allowOutputSelection: true,
     allowToolSelection: true,
     allowLabelClassCreation: true,
-    allowKeypointCreation: false
+    allowKeypointCreation: true,
+    allowPanelSelection: true
 };
 /**
  * Base class for wizards
