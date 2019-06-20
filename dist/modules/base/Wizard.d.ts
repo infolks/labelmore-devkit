@@ -23,7 +23,7 @@ export declare abstract class Wizard {
     readonly title: string;
     readonly icon: string;
     readonly description: string;
-    protected options: Partial<WizardOptions>;
+    options: Partial<WizardOptions>;
     constructor();
     readonly allowExtensions: boolean;
     abstract input(title: string, dir: string, files: string[], options: any): Promise<Project>;

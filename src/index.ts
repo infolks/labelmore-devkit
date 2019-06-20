@@ -1,6 +1,7 @@
 // core
 export {Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES} from "./modules/core/labels"
 export {Frame, ProjectOptions, ProjectShortcuts, Project, ProjectFormData} from "./modules/core/project"
+export {Field, TextField, SelectField, SelectOption, FieldType, CheckboxField} from "./modules/core/forms"
 
 // Managers
 export {FileManager} from './types/FileManager'

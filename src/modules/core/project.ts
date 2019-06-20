@@ -1,4 +1,4 @@
-import {Label, LabelClass, Keypoint, Attribute} from './labels'
+import {Label, LabelClass, Keypoint, ClassAttribute} from './labels'
 
 export interface Frame {
     name: string
@@ -13,7 +13,7 @@ export interface ProjectOptions {
     allowedPanels?: string[]
     labelClasses?: LabelClass[]
     keypoints?: Keypoint[]
-    attributes?: Attribute[]
+    attributes?: ClassAttribute[]
     outputFormats: string[]
     inputSource: string
     outputSource: string
@@ -40,8 +40,9 @@ export interface ProjectFormData {
     outputSource: string
     outputFormats?: string[]
     allowedTools?: string[]
+    allowedPanels?: string[]
     labelClasses?: LabelClass[]
     keypoints?: Keypoint[]
-    attributes?: Attribute[]
+    attributes?: ClassAttribute[]
     shortcuts: ProjectShortcuts
 }

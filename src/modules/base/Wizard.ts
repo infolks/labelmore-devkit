@@ -26,7 +26,7 @@ export abstract class Wizard {
     public readonly title: string;
     public readonly icon: string;
     public readonly description: string;
-    protected options: Partial<WizardOptions> = {
+    public options: Partial<WizardOptions> = {
         ...DEFAULT_WIZARD_OPTIONS
     };
 
@@ -42,6 +42,8 @@ export abstract class Wizard {
     abstract async input(title: string, dir: string, files: string[], options: any): Promise<Project>;
 
     abstract async load(data: Buffer, options: any): Promise<Buffer>;
+
+    
 }
 
 /**

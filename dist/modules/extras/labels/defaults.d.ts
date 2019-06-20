@@ -1,4 +1,7 @@
 import { Label } from "../../core/labels";
+/**
+ * @deprecated This will be discontinued in future versions
+ */
 export interface BoundboxLabel extends Label {
     id: number;
     type: string;
@@ -10,6 +13,9 @@ export interface BoundboxLabel extends Label {
         ymax: number;
     };
 }
+/**
+ * @deprecated This will be discontinued in future versions
+ */
 export interface ContourLabel extends Label {
     id: number;
     type: string;

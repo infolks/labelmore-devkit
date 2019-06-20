@@ -3,6 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // core
 var labels_1 = require("./modules/core/labels");
 exports.DEFAULT_LABEL_TYPES = labels_1.DEFAULT_LABEL_TYPES;
+var forms_1 = require("./modules/core/forms");
+exports.Field = forms_1.Field;
+exports.TextField = forms_1.TextField;
+exports.SelectField = forms_1.SelectField;
+exports.CheckboxField = forms_1.CheckboxField;
 // base
 var AnnotationTool_1 = require("./modules/base/AnnotationTool");
 exports.AnnotationTool = AnnotationTool_1.AnnotationTool;

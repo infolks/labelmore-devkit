@@ -12,6 +12,10 @@ export interface LabelClass {
 export interface Attribute {
     name: string;
     values: string[];
+}
+export interface ClassAttribute extends Attribute {
+    name: string;
+    values: string[];
     classes: string[];
 }
 export interface AttributeValue {
