@@ -10,6 +10,7 @@ export interface ProjectOptions {
     inputPath: string
     outputPath: string
     allowedTools?: string[]
+    allowedPanels?: string[]
     labelClasses?: LabelClass[]
     keypoints?: Keypoint[]
     attributes?: Attribute[]

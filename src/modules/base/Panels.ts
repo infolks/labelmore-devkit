@@ -1,5 +1,3 @@
-import Vue, { VueConstructor } from 'vue'
-
 export interface PanelOptions {
     showTitle: boolean
 }
