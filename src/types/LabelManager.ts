@@ -1,4 +1,4 @@
-import { LabelClass, Label, Keypoint, Attribute, ClassAttribute, AttributeValue } from "../modules/core/labels";
+import { LabelClass, Label, Keypoint, Attribute, ClassAttribute, AttributeValues } from "../modules/core/labels";
 import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 
@@ -42,7 +42,7 @@ export interface LabelManager {
     /**
      * Current active attribute values
      */
-    attributeValues: AttributeValue[]
+    attributeValues: AttributeValues
 
     /**
      * Register a new label type
@@ -81,11 +81,6 @@ export interface LabelManager {
      * @param label the label of which name is to be found
      */
     getName(label: Label): string
-
-    /**
-     * Current selected attribute values as object
-     */
-    getAttributeValuesAsObject(): any 
 
     /**
      * Get an attributes selected value

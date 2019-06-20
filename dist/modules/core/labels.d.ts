@@ -18,10 +18,9 @@ export interface ClassAttribute extends Attribute {
     values: string[];
     classes: string[];
 }
-export interface AttributeValue {
-    name: string;
-    values: string[];
-}
+export declare type AttributeValues = {
+    [key: string]: string[];
+};
 export interface Keypoint {
     name: string;
     classes: string[];

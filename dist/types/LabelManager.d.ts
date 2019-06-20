@@ -1,4 +1,4 @@
-import { LabelClass, Label, Keypoint, ClassAttribute, AttributeValue } from "../modules/core/labels";
+import { LabelClass, Label, Keypoint, ClassAttribute, AttributeValues } from "../modules/core/labels";
 import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 export interface LabelManager {
@@ -33,7 +33,7 @@ export interface LabelManager {
     /**
      * Current active attribute values
      */
-    attributeValues: AttributeValue[];
+    attributeValues: AttributeValues;
     /**
      * Register a new label type
      * @param name unque name used to identify the type (use namespaces for uniqueness like author.category.type)
@@ -66,10 +66,6 @@ export interface LabelManager {
      * @param label the label of which name is to be found
      */
     getName(label: Label): string;
-    /**
-     * Current selected attribute values as object
-     */
-    getAttributeValuesAsObject(): any;
     /**
      * Get an attributes selected value
      * @param name name of the attribute
