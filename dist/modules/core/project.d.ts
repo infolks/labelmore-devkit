@@ -1,4 +1,5 @@
-import { Label, LabelClass, Keypoint, ClassAttribute, Attribute } from './labels';
+import { Label, LabelClass, Keypoint, ClassAttribute } from './labels';
+import { Field } from './forms';
 export interface Frame {
     name: string;
     labels: Label[];
@@ -12,7 +13,7 @@ export interface ProjectOptions {
     labelClasses?: LabelClass[];
     keypoints?: Keypoint[];
     attributes?: ClassAttribute[];
-    sceneAttributes?: Attribute[];
+    sceneAttributes?: Field[];
     outputFormats: string[];
     inputSource: string;
     outputSource: string;
@@ -42,6 +43,6 @@ export interface ProjectFormData {
     labelClasses?: LabelClass[];
     keypoints?: Keypoint[];
     attributes?: ClassAttribute[];
-    sceneAttributes?: Attribute[];
+    sceneAttributes?: Field[];
     shortcuts: ProjectShortcuts;
 }
