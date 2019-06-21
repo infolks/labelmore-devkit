@@ -27,6 +27,7 @@ export abstract class Field {
         this.label = label
         this.type = type
     }
+
 }
 
 /**
@@ -56,7 +57,8 @@ export class SelectField extends Field {
     static TYPE = 'selected'
 
     options: SelectOption[]
-    default: string
+    default: SelectOption | SelectOption[]
+    multi: boolean
 
     /**
      * Create a new select dropdown field
@@ -65,7 +67,7 @@ export class SelectField extends Field {
      * @param options - options to show in dropdown
      * @param defaultVal - default selected option name
      */
-    constructor(name: string, label: string, options: SelectOption[] = [], defaultVal: string) {
+    constructor(name: string, label: string, options: SelectOption[] = [], multi: boolean = false, defaultVal: SelectOption | SelectOption[]) {
         super(name, label, 'select')
         this.options = options
         this.default = defaultVal

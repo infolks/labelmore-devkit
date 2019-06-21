@@ -41,7 +41,8 @@ export declare class TextField extends Field {
 export declare class SelectField extends Field {
     static TYPE: string;
     options: SelectOption[];
-    default: string;
+    default: SelectOption | SelectOption[];
+    multi: boolean;
     /**
      * Create a new select dropdown field
      * @param name - name of the field
@@ -49,7 +50,7 @@ export declare class SelectField extends Field {
      * @param options - options to show in dropdown
      * @param defaultVal - default selected option name
      */
-    constructor(name: string, label: string, options: SelectOption[], defaultVal: string);
+    constructor(name: string, label: string, options: SelectOption[], multi: boolean, defaultVal: SelectOption | SelectOption[]);
 }
 /**
  * A checkbox field
