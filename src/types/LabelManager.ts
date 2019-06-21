@@ -93,7 +93,7 @@ export interface LabelManager {
      * @param name name of the attribute
      * @param value value of the attribute
      */
-    setAttribute(name: string, value: string): void
+    setAttribute(name: string, value: string | string[]): void
 
     /**
      * Add label to the frame

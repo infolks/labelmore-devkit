@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.DEFAULT_WIZARD_OPTIONS = {
     allowOutputSelection: true,
     allowToolSelection: true,
+    allowPanelSelection: true,
     allowLabelClassCreation: true,
     allowKeypointCreation: true,
-    allowPanelSelection: true
+    allowClassAttributeCreation: false,
+    allowSceneAttributeCreation: false
 };
 /**
  * Base class for wizards

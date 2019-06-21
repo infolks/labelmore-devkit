@@ -2,6 +2,7 @@ import { Frame, Project } from "../modules/core/project";
 import { Wizard, WizardType, WizardInfo } from "../modules/base/Wizard";
 import { Source, SourceInfo } from "../modules/base/Source";
 import { Encoder, EncoderInfo } from "../modules/base/Encoder";
+import { Attribute, AttributeValues } from "../modules/core/labels";
 export interface ProjectManager {
     /**
      * current frame of the project
@@ -23,6 +24,14 @@ export interface ProjectManager {
      * Number of labels in the entire project
      */
     boxCount: number;
+    /**
+     * The scene attributes for the project
+     */
+    sceneAttributes: Attribute[];
+    /**
+     * The scene corresponding to current frame
+     */
+    scene: AttributeValues;
     /**
      * Register a new wizard to project manager
      * @param name name to register the wizard
@@ -101,4 +110,15 @@ export interface ProjectManager {
      *
      */
     loadFrame(index: number, allowExport: boolean): Promise<void>;
+    /**
+     * Get value of a scene attribute
+     * @param name name of the attribute
+     */
+    getScene(name: string): string[];
+    /**
+     * Set a scene attribute
+     * @param name name of the attribute
+     * @param value value of the attribute
+     */
+    setScene(name: string, value: string | string[]): void;
 }
