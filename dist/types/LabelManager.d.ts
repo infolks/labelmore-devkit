@@ -70,7 +70,7 @@ export interface LabelManager {
      * Get an attributes selected value
      * @param name name of the attribute
      */
-    getAttribute(name: string): string;
+    getAttribute(name: string): string[];
     /**
      * Set an attribute value
      * @param name name of the attribute

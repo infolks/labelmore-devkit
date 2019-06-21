@@ -12,11 +12,13 @@ export interface LabelClass {
 export interface Attribute {
     name: string;
     values: string[];
+    multi: boolean;
 }
 export interface ClassAttribute extends Attribute {
     name: string;
     values: string[];
     classes: string[];
+    multi: boolean;
 }
 export declare type AttributeValues = {
     [key: string]: string[];
