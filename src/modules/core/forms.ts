@@ -67,7 +67,7 @@ export class SelectField extends Field {
      * @param options - options to show in dropdown
      * @param defaultVal - default selected option name
      */
-    constructor(name: string, label: string, options: SelectOption[] = [], multi: boolean = false, defaultVal: SelectOption | SelectOption[]) {
+    constructor(name: string, label: string, options: SelectOption[] = [], multi: boolean = false, defaultVal: SelectOption | SelectOption[] = null) {
         super(name, label, 'select')
         this.options = options
         this.default = defaultVal

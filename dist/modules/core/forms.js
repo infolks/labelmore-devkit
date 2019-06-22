@@ -45,7 +45,7 @@ class SelectField extends Field {
      * @param options - options to show in dropdown
      * @param defaultVal - default selected option name
      */
-    constructor(name, label, options = [], multi = false, defaultVal) {
+    constructor(name, label, options = [], multi = false, defaultVal = null) {
         super(name, label, 'select');
         this.options = options;
         this.default = defaultVal;

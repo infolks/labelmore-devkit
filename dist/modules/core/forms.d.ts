@@ -50,7 +50,7 @@ export declare class SelectField extends Field {
      * @param options - options to show in dropdown
      * @param defaultVal - default selected option name
      */
-    constructor(name: string, label: string, options: SelectOption[], multi: boolean, defaultVal: SelectOption | SelectOption[]);
+    constructor(name: string, label: string, options?: SelectOption[], multi?: boolean, defaultVal?: SelectOption | SelectOption[]);
 }
 /**
  * A checkbox field

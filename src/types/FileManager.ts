@@ -52,13 +52,13 @@ export interface FileManager {
      * Check if a path corresponds to a file or not
      * @param path path to the target
      */
-    isFile(path: string): Promise<boolean>
+    isFile(...paths: string[]): Promise<boolean>
 
     /**
      * Check if a path corresponds to a directory or not
      * @param path path to the target
      */
-    isDir(path: string): Promise<boolean>
+    isDir(...paths: string[]): Promise<boolean>
 
     /**
      * Check if a path exists or not
