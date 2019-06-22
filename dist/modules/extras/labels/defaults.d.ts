@@ -10,3 +10,9 @@ export interface ContourProps {
         y: number;
     }[];
 }
+export interface PolylineProps {
+    points: {
+        x: number;
+        y: number;
+    }[];
+}

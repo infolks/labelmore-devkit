@@ -6,10 +6,16 @@ export interface BoundboxProps{
     ymax: number
 }
 
-
 export interface ContourProps{
     points: {
-        x: number,
+        x: number
+        y: number
+    }[]
+}
+
+export interface PolylineProps {
+    points: {
+        x: number
         y: number
     }[]
 }

@@ -13,5 +13,5 @@ export declare abstract class LabelType<P> {
      * @param path path to be converted
      * @return the props value of the label
      */
-    abstract apply(path: PathItem): any;
+    abstract apply(path: PathItem): P;
 }
