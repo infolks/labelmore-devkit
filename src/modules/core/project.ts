@@ -3,7 +3,7 @@ import { Field } from './forms';
 
 export interface Frame {
     name: string
-    labels: Label[]
+    labels: Label<any>[]
     props: any
 }
 

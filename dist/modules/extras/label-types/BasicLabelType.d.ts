@@ -10,7 +10,7 @@ export interface BasicLabelTypeOptions {
     hideTagOnSelect: boolean;
 }
 export declare const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions;
-export declare abstract class BasicLabelType extends LabelType {
+export declare abstract class BasicLabelType<P> extends LabelType<P> {
     protected labeller: LabelManager;
     protected workspace: WorkspaceManager;
     protected settings: SettingsManager;
@@ -29,23 +29,23 @@ export declare abstract class BasicLabelType extends LabelType {
      * Converting label to vector
      * @param label label to be converted to a vector
      */
-    abstract vectorize(label: Label): PathItem;
-    abstract select(label: Label, path: PathItem, ratio: number): void;
+    abstract vectorize(label: Label<P>): PathItem;
+    abstract select(label: Label<P>, path: PathItem, ratio: number): void;
     /**
      * text to be shown on tag
      * @param label the correspondin label
      */
-    tagContent(label: Label, labelClass: LabelClass): string;
+    tagContent(label: Label<P>, labelClass: LabelClass): string;
     /**
      * Render a label to workspace
      * @param label label to be rendered
      */
-    render(label: Label): PathItem;
+    render(label: Label<P>): PathItem;
     /**
      * Show tag of the label
      * @param label label
      * @param path path created from label
      * @param ratio ratio based on the zoom of the workspace
      */
-    protected showLabelTag(label: Label, path: PathItem, ratio: number): Group;
+    protected showLabelTag(label: Label<P>, path: PathItem, ratio: number): Group;
 }

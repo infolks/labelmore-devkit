@@ -17,12 +17,12 @@ export interface LabelManager {
     /**
      * The current selected label (Read Only)
      */
-    selected: Label
+    selected: Label<any>
 
     /**
      * All labels in the current frame (Read Only)
      */
-    all: Label[]
+    all: Label<any>[]
 
     /**
      * All label classes for the current project (Read Only)
@@ -50,7 +50,7 @@ export interface LabelManager {
      * @param labelType the type to register.
      * @note The namespace types.default.* are reserved
      */
-    register(name: string, labelType: LabelType): void
+    register(name: string, labelType: LabelType<any>): void
 
     /**
      * Check whether a label type is already registered
@@ -62,13 +62,13 @@ export interface LabelManager {
      * Render a label using its label type
      * @param label Label to be rendered
      */
-    render(label: Label): PathItem
+    render(label: Label<any>): PathItem
 
     /**
      * Get a label corresponding to the id
      * @param id id of the label
      */
-    getLabel(id: number): Label
+    getLabel(id: number): Label<any>
 
     /**
      * Get label class correspondin to the id
@@ -80,7 +80,7 @@ export interface LabelManager {
      * Get name of the label based on the types name format
      * @param label the label of which name is to be found
      */
-    getName(label: Label): string
+    getName(label: Label<any>): string
 
     /**
      * Get an attributes selected value
@@ -99,7 +99,7 @@ export interface LabelManager {
      * Add label to the frame
      * @param label label to be added
      */
-    add(label: Partial<Label>): void
+    add(label: Partial<Label<any>>): void
 
     /**
      * Remove a label from the frame
@@ -112,7 +112,7 @@ export interface LabelManager {
      * @param id id of the label
      * @param props properties to change
      */
-    update(id: number, props: Partial<Label>): void
+    update(id: number, props: Partial<Label<any>>): void
 
     /**
      * Apply path to a label

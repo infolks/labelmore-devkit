@@ -17,7 +17,7 @@ export const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions = {
     hideTagOnSelect: true
 }
 
-export abstract class BasicLabelType extends LabelType {
+export abstract class BasicLabelType<P> extends LabelType<P> {
 
     protected options: Partial<BasicLabelTypeOptions> = {}
 
@@ -45,15 +45,15 @@ export abstract class BasicLabelType extends LabelType {
      * Converting label to vector
      * @param label label to be converted to a vector
      */
-    abstract vectorize(label: Label): PathItem;
+    abstract vectorize(label: Label<P>): PathItem;
 
-    abstract select(label: Label, path: PathItem, ratio: number): void;
+    abstract select(label: Label<P>, path: PathItem, ratio: number): void;
 
     /**
      * text to be shown on tag
      * @param label the correspondin label
      */
-    tagContent(label: Label, labelClass: LabelClass): string {
+    tagContent(label: Label<P>, labelClass: LabelClass): string {
         return labelClass.name
     }
 
@@ -61,7 +61,7 @@ export abstract class BasicLabelType extends LabelType {
      * Render a label to workspace
      * @param label label to be rendered
      */
-    render(label: Label): PathItem {
+    render(label: Label<P>): PathItem {
 
         const path = this.vectorize(label);
 
@@ -108,7 +108,7 @@ export abstract class BasicLabelType extends LabelType {
      * @param path path created from label
      * @param ratio ratio based on the zoom of the workspace
      */
-    protected showLabelTag(label: Label, path: PathItem, ratio: number) {
+    protected showLabelTag(label: Label<P>, path: PathItem, ratio: number) {
 
         const class_ = this.labeller.getClass(label.class_id)
 

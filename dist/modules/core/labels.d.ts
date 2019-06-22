@@ -1,8 +1,8 @@
-export interface Label {
+export interface Label<P> {
     id: number;
     type: string;
     class_id: string;
-    props: any;
+    props: P;
     attributes?: AttributeValues;
 }
 export interface LabelClass {
@@ -31,4 +31,5 @@ export interface Keypoint {
 export declare const DEFAULT_LABEL_TYPES: {
     boundbox: string;
     contour: string;
+    line: string;
 };

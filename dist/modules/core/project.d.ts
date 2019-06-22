@@ -2,7 +2,7 @@ import { Label, LabelClass, Keypoint, ClassAttribute } from './labels';
 import { Field } from './forms';
 export interface Frame {
     name: string;
-    labels: Label[];
+    labels: Label<any>[];
     props: any;
 }
 export interface ProjectOptions {

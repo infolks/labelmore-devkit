@@ -1,13 +1,13 @@
 import { PathItem } from "paper";
 import { Label } from "../core/labels";
-export declare abstract class LabelType {
+export declare abstract class LabelType<P> {
     readonly title: string;
     readonly name_format: string;
     /**
      * Covnert label to path on workspace
      * @param label label to be rendered
      */
-    abstract render(label: Label): PathItem;
+    abstract render(label: Label<P>): PathItem;
     /**
      * Convert a path on workspace to label
      * @param path path to be converted

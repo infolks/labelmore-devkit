@@ -98,7 +98,7 @@ export interface WorkspaceManager {
      * Render labels to the workspace
      * @param labels labels to be rendered
      */
-    render(labels: Label[]): void;
+    render(labels: Label<any>[]): void;
     /**
      * clear art layer
      */

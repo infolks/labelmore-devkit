@@ -1,10 +1,10 @@
 import { PathItem } from "paper";
 
-export interface Label {
+export interface Label<P> {
     id: number
     type: string
     class_id: string
-    props: any,
+    props: P
     attributes?: AttributeValues
 }
 
