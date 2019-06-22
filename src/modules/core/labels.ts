@@ -36,5 +36,6 @@ export interface Keypoint {
 
 export const DEFAULT_LABEL_TYPES = {
     boundbox: 'types.default.bndbox',
-    contour: 'types.default.contour'
+    contour: 'types.default.contour',
+    line: 'types.default.line'
 }
