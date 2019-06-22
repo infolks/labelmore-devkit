@@ -16,9 +16,15 @@ export declare abstract class BasicLabelType extends LabelType {
     protected settings: SettingsManager;
     protected paper: PaperScope;
     protected options: Partial<BasicLabelTypeOptions>;
-    protected readonly defaultStrokeWidth: number;
-    protected readonly fillColorAlpha: number;
     constructor(labeller: LabelManager, workspace: WorkspaceManager, settings: SettingsManager, paper: PaperScope);
+    readonly labelPrefs: {
+        fill: {
+            opacity: number;
+        };
+        stroke: {
+            width: number;
+        };
+    };
     /**
      * Converting label to vector
      * @param label label to be converted to a vector

@@ -21,8 +21,8 @@ export abstract class BasicLabelType extends LabelType {
 
     protected options: Partial<BasicLabelTypeOptions> = {}
 
-    protected readonly defaultStrokeWidth: number = 1
-    protected readonly fillColorAlpha: number = 0.3
+    // protected readonly defaultStrokeWidth: number = 1
+    // protected readonly fillColorAlpha: number = 0.3
 
     constructor(
         protected labeller: LabelManager, 
@@ -35,6 +35,10 @@ export abstract class BasicLabelType extends LabelType {
             ...DEFAULT_BASIC_LABEL_TYPE_OPTIONS,
             ...this.options
         }
+    }
+
+    get labelPrefs() {
+        return this.settings.general.workspace.labels
     }
 
     /**
@@ -70,8 +74,8 @@ export abstract class BasicLabelType extends LabelType {
         // style path
         path.style = {
             strokeColor: color,
-            fillColor: new Color(color.red, color.green, color.blue, this.fillColorAlpha),
-            strokeWidth: this.defaultStrokeWidth * ratio,
+            fillColor: new Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity),
+            strokeWidth: this.labelPrefs.stroke.width * ratio,
             selectedColor: color
         }
 

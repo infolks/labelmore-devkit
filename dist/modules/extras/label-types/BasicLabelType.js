@@ -8,6 +8,8 @@ exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS = {
     hideTagOnSelect: true
 };
 class BasicLabelType extends LabelType_1.LabelType {
+    // protected readonly defaultStrokeWidth: number = 1
+    // protected readonly fillColorAlpha: number = 0.3
     constructor(labeller, workspace, settings, paper) {
         super();
         this.labeller = labeller;
@@ -15,9 +17,10 @@ class BasicLabelType extends LabelType_1.LabelType {
         this.settings = settings;
         this.paper = paper;
         this.options = {};
-        this.defaultStrokeWidth = 1;
-        this.fillColorAlpha = 0.3;
         this.options = Object.assign({}, exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS, this.options);
+    }
+    get labelPrefs() {
+        return this.settings.general.workspace.labels;
     }
     /**
      * text to be shown on tag
@@ -38,8 +41,8 @@ class BasicLabelType extends LabelType_1.LabelType {
         // style path
         path.style = {
             strokeColor: color,
-            fillColor: new paper_1.Color(color.red, color.green, color.blue, this.fillColorAlpha),
-            strokeWidth: this.defaultStrokeWidth * ratio,
+            fillColor: new paper_1.Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity),
+            strokeWidth: this.labelPrefs.stroke.width * ratio,
             selectedColor: color
         };
         const selected = this.labeller.selected ? this.labeller.selected.id : -1;

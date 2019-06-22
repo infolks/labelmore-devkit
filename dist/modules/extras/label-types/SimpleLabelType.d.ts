@@ -1,5 +1,5 @@
 import { BasicLabelType } from "./BasicLabelType";
-import { Control } from "../Control";
+import { Control } from "../control";
 import { PathItem, Path, Point } from "paper";
 import { Label } from "../../core/labels";
 export declare abstract class SimpleLabelType extends BasicLabelType {

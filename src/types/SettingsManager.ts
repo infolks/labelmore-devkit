@@ -1,11 +1,12 @@
 import { Interface, InterfaceInfo } from "../modules/base/Interface";
 import Vue from 'vue'
+import { GeneralSettings } from "../modules/extras/settings";
 export interface SettingsManager {
 
     /**
      * The general settings
      */
-    general: any
+    general: GeneralSettings
 
     /** 
      * entire settings

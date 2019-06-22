@@ -21,6 +21,11 @@ export interface UIManager {
     isFullscreen: boolean
 
     /**
+     * The status of the project (readonly)
+     */
+    status: string
+
+    /**
      * Show loading screen
      */
     showLoading(): void
@@ -69,4 +74,16 @@ export interface UIManager {
      * @param flag true sets window to fullscreen
      */
     fullscreen(flag?: boolean): void
+
+    /**
+     * Set status of the project. (The set value will persist until reset)
+     * @param value value to be set
+     */
+    setStatus(value: string): void
+    /**
+     * Set status of the project
+     * @param value value to be set
+     * @param timeout how long the value should persist
+     */
+    setStatus(value: string, timeout: number): void
 }

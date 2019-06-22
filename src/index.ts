@@ -28,5 +28,6 @@ export {WizardOptions, WizardInfo, WizardType, Wizard, DEFAULT_WIZARD_OPTIONS} f
 // extras
 export {BasicLabelType, BasicLabelTypeOptions, DEFAULT_BASIC_LABEL_TYPE_OPTIONS} from './modules/extras/label-types/BasicLabelType'
 export {SimpleLabelType} from './modules/extras/label-types/SimpleLabelType'
-export {Control} from './modules/extras/Control'
+export {Control} from './modules/extras/control'
+export {GeneralSettings} from './modules/extras/settings'
 export {BoundboxLabel, ContourLabel} from './modules/extras/labels/defaults'
