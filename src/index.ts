@@ -30,4 +30,4 @@ export {BasicLabelType, BasicLabelTypeOptions, DEFAULT_BASIC_LABEL_TYPE_OPTIONS}
 export {SimpleLabelType} from './modules/extras/label-types/SimpleLabelType'
 export {Control} from './modules/extras/control'
 export {GeneralSettings} from './modules/extras/settings'
-export {BoundboxProps, ContourProps} from './modules/extras/labels/defaults'
+export {BoundboxProps, ContourProps, PolylineProps} from './modules/extras/labels/defaults'
