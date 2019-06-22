@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import { Project } from "../core/project";
+import { Field } from "../core/forms";
 export interface WizardOptions {
     allowOutputSelection: boolean;
     allowToolSelection: boolean;
@@ -29,7 +30,10 @@ export declare abstract class Wizard {
     readonly description: string;
     options: Partial<WizardOptions>;
     constructor();
-    readonly allowExtensions: boolean;
+    /**
+     * Any custom fields required
+     */
+    fields(): Field[];
     abstract input(title: string, dir: string, files: string[], options: any): Promise<Project>;
     abstract load(data: Buffer, options: any): Promise<Buffer>;
 }

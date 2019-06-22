@@ -1,4 +1,5 @@
 import { Project } from "../core/project";
+import { Field } from "../core/forms";
 
 export interface WizardOptions {
     allowOutputSelection: boolean;
@@ -41,7 +42,12 @@ export abstract class Wizard {
         }
     }
 
-    public readonly allowExtensions: boolean = false;
+    /**
+     * Any custom fields required
+     */
+    fields(): Field[] {
+        return []
+    }
 
     abstract async input(title: string, dir: string, files: string[], options: any): Promise<Project>;
 

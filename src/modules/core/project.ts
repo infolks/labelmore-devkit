@@ -20,6 +20,7 @@ export interface ProjectOptions {
     inputSource: string
     outputSource: string
     shortcuts: ProjectShortcuts
+    extras?: any
 }
 
 export type ProjectShortcuts = {[key:string]:string}
@@ -48,4 +49,5 @@ export interface ProjectFormData {
     attributes?: ClassAttribute[]
     sceneAttributes?: Field[]
     shortcuts: ProjectShortcuts
+    extras?: any
 }

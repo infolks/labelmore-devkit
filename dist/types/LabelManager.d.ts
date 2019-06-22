@@ -3,31 +3,31 @@ import { PathItem } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 export interface LabelManager {
     /**
-     * The current selected label class
+     * The current selected label class (Read Only)
      */
     class: LabelClass;
     /**
-     * The current selected keypoint
+     * The current selected keypoint (Read Only)
      */
     keypoint: Keypoint;
     /**
-     * The current selected label
+     * The current selected label (Read Only)
      */
     selected: Label;
     /**
-     * All labels in the current frame
+     * All labels in the current frame (Read Only)
      */
     all: Label[];
     /**
-     * All label classes for the current project
+     * All label classes for the current project (Read Only)
      */
     classes: LabelClass[];
     /**
-     * All keypoints available for the current class
+     * All keypoints available for the current class (Read Only)
      */
     keypoints: Keypoint[];
     /**
-     * All attributes available for the current class
+     * All attributes available for the current class (Read Only)
      */
     attributes: ClassAttribute[];
     /**
