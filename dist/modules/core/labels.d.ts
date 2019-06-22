@@ -3,6 +3,7 @@ export interface Label {
     type: string;
     class_id: string;
     props: any;
+    attributes?: AttributeValues;
 }
 export interface LabelClass {
     id: string;

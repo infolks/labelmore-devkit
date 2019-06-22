@@ -4,7 +4,8 @@ export interface Label {
     id: number
     type: string
     class_id: string
-    props: any
+    props: any,
+    attributes?: AttributeValues
 }
 
 export interface LabelClass {
