@@ -1,6 +1,6 @@
 {
   "name": "@infolks/labelmore-devkit",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Development kit for labelmore developers.",
   "main": "dist/index.js",
   "scripts": {
