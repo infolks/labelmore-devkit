@@ -21,7 +21,7 @@ export const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions = {
 
 export abstract class BasicLabelType<P> extends LabelType<P> {
 
-    public options: Partial<BasicLabelTypeOptions> = {}
+    public options: Partial<BasicLabelTypeOptions> = DEFAULT_BASIC_LABEL_TYPE_OPTIONS
 
     // protected readonly defaultStrokeWidth: number = 1
     // protected readonly fillColorAlpha: number = 0.3
