@@ -17,7 +17,7 @@ class BasicLabelType extends LabelType_1.LabelType {
         this.workspace = workspace;
         this.settings = settings;
         this.paper = paper;
-        this.options = {};
+        this.options = exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS;
         this.options = Object.assign({}, exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS, this.options);
     }
     get labelPrefs() {

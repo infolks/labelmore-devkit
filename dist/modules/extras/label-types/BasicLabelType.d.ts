@@ -16,7 +16,7 @@ export declare abstract class BasicLabelType<P> extends LabelType<P> {
     protected workspace: WorkspaceManager;
     protected settings: SettingsManager;
     protected paper: PaperScope;
-    protected options: Partial<BasicLabelTypeOptions>;
+    options: Partial<BasicLabelTypeOptions>;
     constructor(labeller: LabelManager, workspace: WorkspaceManager, settings: SettingsManager, paper: PaperScope);
     readonly labelPrefs: {
         fill: {
