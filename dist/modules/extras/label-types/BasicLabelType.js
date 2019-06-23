@@ -5,7 +5,8 @@ const LabelType_1 = require("../../base/LabelType");
 exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS = {
     showLabelTag: true,
     labelTagPosition: 'topLeft',
-    hideTagOnSelect: true
+    hideTagOnSelect: true,
+    hasFill: true
 };
 class BasicLabelType extends LabelType_1.LabelType {
     // protected readonly defaultStrokeWidth: number = 1
@@ -41,7 +42,7 @@ class BasicLabelType extends LabelType_1.LabelType {
         // style path
         path.style = {
             strokeColor: color,
-            fillColor: new paper_1.Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity),
+            fillColor: this.options.hasFill ? new paper_1.Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity) : null,
             strokeWidth: this.labelPrefs.stroke.width * ratio,
             selectedColor: color
         };

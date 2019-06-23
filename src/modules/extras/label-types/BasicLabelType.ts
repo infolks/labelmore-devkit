@@ -9,12 +9,14 @@ export interface BasicLabelTypeOptions {
     showLabelTag: boolean;
     labelTagPosition?: 'center'|'topLeft'|'topRight'|'bottomLeft'|'bottomRight'|'leftCenter'|'topCenter'|'rightCenter'|'bottomCenter';
     hideTagOnSelect: boolean;
+    hasFill: boolean;
 }
 
 export const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions = {
     showLabelTag: true,
     labelTagPosition: 'topLeft',
-    hideTagOnSelect: true
+    hideTagOnSelect: true,
+    hasFill: true
 }
 
 export abstract class BasicLabelType<P> extends LabelType<P> {
@@ -74,7 +76,7 @@ export abstract class BasicLabelType<P> extends LabelType<P> {
         // style path
         path.style = {
             strokeColor: color,
-            fillColor: new Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity),
+            fillColor: this.options.hasFill? new Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity): null,
             strokeWidth: this.labelPrefs.stroke.width * ratio,
             selectedColor: color
         }

@@ -8,6 +8,7 @@ export interface BasicLabelTypeOptions {
     showLabelTag: boolean;
     labelTagPosition?: 'center' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftCenter' | 'topCenter' | 'rightCenter' | 'bottomCenter';
     hideTagOnSelect: boolean;
+    hasFill: boolean;
 }
 export declare const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions;
 export declare abstract class BasicLabelType<P> extends LabelType<P> {
