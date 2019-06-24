@@ -1,4 +1,4 @@
-import { Rectangle, Point, View, Path } from "paper";
+import { Rectangle, Point, View, Path, PathItem } from "paper";
 import { PanelInfo, Panel } from "../modules/base/Panels";
 import { Label } from "../modules/core/labels";
 
@@ -141,5 +141,11 @@ export interface WorkspaceManager {
      * @param point point to be taken as center
      */
     zoomToPoint(zoom: number, point: Point): void
+
+    /**
+     * Get path of a label
+     * @param label label whose corresponding path is to be found
+     */
+    getPath(label: Label<any>): PathItem
 
 }

@@ -1,4 +1,4 @@
-import { PathItem } from "paper";
+import { PathItem, ToolEvent } from "paper";
 
 export interface Label<P> {
     id: number
