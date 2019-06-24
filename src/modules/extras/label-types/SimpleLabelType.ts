@@ -1,6 +1,6 @@
 import { BasicLabelType } from "./BasicLabelType";
 import { Control } from "../control";
-import { PathItem, Path, Point, Rectangle, Size } from "paper";
+import { PathItem, Path, Point, Rectangle, Size, Color } from "paper";
 import { Label } from "../../core/labels";
 
 export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
@@ -47,6 +47,8 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
     
                 const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius*ratio)
                 controlPath.style = path.style
+                controlPath.fillColor = new Color(path.strokeColor.toString())
+                controlPath.fillColor.alpha = 0.3
     
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL
 

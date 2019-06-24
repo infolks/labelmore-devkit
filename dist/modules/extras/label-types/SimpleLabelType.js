@@ -31,6 +31,8 @@ class SimpleLabelType extends BasicLabelType_1.BasicLabelType {
                 let controlBounds = control.bounds || new paper_1.Rectangle(controlPoint, new paper_1.Size(0, 0));
                 const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius * ratio);
                 controlPath.style = path.style;
+                controlPath.fillColor = new paper_1.Color(path.strokeColor.toString());
+                controlPath.fillColor.alpha = 0.3;
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL;
                 // UPDATE CONTROLS ON PATH CHANGE
                 const updateControls = () => {

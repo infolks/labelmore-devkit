@@ -14,6 +14,7 @@ export interface WorkspaceManager {
     RESERVED_ITEMS: {
         CONTROL: number;
         CLASSLESS: number;
+        VERBOSE: number;
     };
     /**
      * The working artboard (readonly)

@@ -14,7 +14,8 @@ export interface WorkspaceManager {
      */
     RESERVED_ITEMS: {
         CONTROL: number,
-        CLASSLESS: number
+        CLASSLESS: number,
+        VERBOSE: number,
     }
 
     /**
