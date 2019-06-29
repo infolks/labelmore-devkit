@@ -17,12 +17,12 @@ export declare abstract class Encoder {
      * @param frame frame to encode
      * @param project corresponding project
      */
-    abstract encode(frame: Frame, project: Project): Promise<FileWriteInfo[]>;
+    abstract encode(frame: Frame, project: Project): FileWriteInfo[];
     /**
      * Any final project information files to include is created here
      * @param project project to encode
      */
-    abstract finalize(project: Project): Promise<FileWriteInfo[]>;
+    abstract finalize(project: Project): FileWriteInfo[];
 }
 export interface EncoderInfo {
     name: string;
