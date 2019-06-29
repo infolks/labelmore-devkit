@@ -1,4 +1,4 @@
-export { Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES } from "./modules/core/labels";
+export { Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES, Attribute, ClassAttribute, AttributeValues } from "./modules/core/labels";
 export { Frame, ProjectOptions, ProjectShortcuts, Project, ProjectFormData } from "./modules/core/project";
 export { Field, TextField, SelectField, SelectOption, FieldType, CheckboxField } from "./modules/core/forms";
 export { FileManager } from './types/FileManager';
@@ -11,6 +11,7 @@ export { ToolManager } from './types/ToolManager';
 export { UIManager } from './types/UIManager';
 export { WorkspaceManager } from './types/WorkspaceManager';
 export { ProcessManager } from './types/ProcessManager';
+export { ActionManager, Action, ActionSnapshot } from './types/ActionManager';
 export { AnnotationTool, AnnotationToolInfo, AnnotationToolOptions, DEFAULT_ANNOTATION_TOOL_OPTIONS } from './modules/base/AnnotationTool';
 export { FileWriteInfo, Encoder, EncoderInfo } from './modules/base/Encoder';
 export { WheelEvent } from './modules/base/Events';

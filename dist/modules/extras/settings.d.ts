@@ -37,5 +37,6 @@ export interface GeneralSettings {
     };
     project: {
         autosave: boolean;
+        autoselect: boolean;
     };
 }

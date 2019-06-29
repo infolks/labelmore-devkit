@@ -25,17 +25,18 @@ export interface GeneralSettings {
     },
     tools: {
         defaults: {
-            select: string,
-            boundbox: string,
-            contour: string,
+            select: string
+            boundbox: string
+            contour: string
             pan: string
         },
         max: number
     },
     shortcuts: {
-        enabled: boolean,
+        enabled: boolean
     },
     project: {
         autosave: boolean
+        autoselect: boolean
     }
 }

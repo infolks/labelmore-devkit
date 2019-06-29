@@ -1,5 +1,5 @@
 // core
-export {Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES} from "./modules/core/labels"
+export {Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES, Attribute, ClassAttribute, AttributeValues} from "./modules/core/labels"
 export {Frame, ProjectOptions, ProjectShortcuts, Project, ProjectFormData} from "./modules/core/project"
 export {Field, TextField, SelectField, SelectOption, FieldType, CheckboxField} from "./modules/core/forms"
 
@@ -14,6 +14,7 @@ export {ToolManager} from './types/ToolManager'
 export {UIManager} from './types/UIManager'
 export {WorkspaceManager} from './types/WorkspaceManager'
 export {ProcessManager} from './types/ProcessManager'
+export {ActionManager, Action, ActionSnapshot} from './types/ActionManager'
 
 // base
 export {AnnotationTool, AnnotationToolInfo, AnnotationToolOptions, DEFAULT_ANNOTATION_TOOL_OPTIONS} from './modules/base/AnnotationTool'
@@ -24,6 +25,7 @@ export {LabelType} from './modules/base/LabelType'
 export {Panel, PanelInfo, PanelOptions} from './modules/base/Panels'
 export {Source, SourceInfo} from './modules/base/Source'
 export {WizardOptions, WizardInfo, WizardType, Wizard, DEFAULT_WIZARD_OPTIONS} from './modules/base/Wizard'
+
 
 // extras
 export {BasicLabelType, BasicLabelTypeOptions, DEFAULT_BASIC_LABEL_TYPE_OPTIONS} from './modules/extras/label-types/BasicLabelType'
