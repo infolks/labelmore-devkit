@@ -31,4 +31,7 @@ exports.BasicLabelType = BasicLabelType_1.BasicLabelType;
 exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS = BasicLabelType_1.DEFAULT_BASIC_LABEL_TYPE_OPTIONS;
 var SimpleLabelType_1 = require("./modules/extras/label-types/SimpleLabelType");
 exports.SimpleLabelType = SimpleLabelType_1.SimpleLabelType;
+// factories
+var factories_1 = require("./modules/extras/labels/factories");
+exports.BoundboxFactory = factories_1.BoundboxFactory;
 //# sourceMappingURL=index.js.map

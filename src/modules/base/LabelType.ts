@@ -22,4 +22,12 @@ export abstract class LabelType<P> {
      */
     abstract apply(path: PathItem): P;
 
+    /**
+     * hotspot information for the label
+     * @param label label whose hotspot is to be shown
+     */
+    hotspot(label: Label<P>): string {
+        return ''
+    }
+
 }

@@ -24,3 +24,4 @@ export { SimpleLabelType } from './modules/extras/label-types/SimpleLabelType';
 export { Control } from './modules/extras/control';
 export { GeneralSettings } from './modules/extras/settings';
 export { BoundboxProps, ContourProps, PolylineProps } from './modules/extras/labels/defaults';
+export { BoundboxFactory } from './modules/extras/labels/factories';

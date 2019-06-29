@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import { Rectangle, Point, View, Path, PathItem } from "paper";
+import { Rectangle, Point, View, Path, PathItem, Layer } from "paper";
 import { PanelInfo, Panel } from "../modules/base/Panels";
 import { Label } from "../modules/core/labels";
 export interface WorkspaceGuide {
@@ -15,6 +15,12 @@ export interface WorkspaceManager {
         CONTROL: number;
         CLASSLESS: number;
         VERBOSE: number;
+    };
+    LAYERS: {
+        ART: string;
+        IMAGE: string;
+        CONTROLS: string;
+        GUIDE: string;
     };
     /**
      * The working artboard (readonly)
@@ -65,6 +71,22 @@ export interface WorkspaceManager {
      */
     setup(canvas: HTMLCanvasElement): void;
     /**
+     * Get a layer from workspace
+     * @param name name of the layer
+     */
+    getLayer(name: string): Layer;
+    /**
+     * Insert a new layer to workspace above art layer
+     * @param name name of the layer to insert
+     */
+    insertLayer(name: string): Layer;
+    /**
+     * Insert a new layer to workspace
+     * @param name name of the layer to insert
+     * @param above above which layer the new layer is to be inserted
+     */
+    insertLayer(name: string, above: string): Layer;
+    /**
      * activate controls layer to render controls
      * @returns true if successfully activated the controls layer
      */
@@ -74,6 +96,11 @@ export interface WorkspaceManager {
      * @returns true if successfully activated the art layer
      */
     activateArtLayer(): boolean;
+    /**
+     * activate umage layer to alter frame
+     * @returns true if successfully activated the art layer
+     */
+    activateImageLayer(): boolean;
     /**
      * Enable shortcuts
      */

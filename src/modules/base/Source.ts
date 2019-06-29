@@ -34,7 +34,7 @@ export abstract class Source {
      * @param dir parent directory path
      * @param subdir subdirectory relative path
      */
-    abstract join(dir: string, subdir: string): string;
+    abstract async join(dir: string, subdir: string): Promise<string>;
 }
 
 export interface SourceInfo {

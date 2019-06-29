@@ -14,4 +14,9 @@ export declare abstract class LabelType<P> {
      * @return the props value of the label
      */
     abstract apply(path: PathItem): P;
+    /**
+     * hotspot information for the label
+     * @param label label whose hotspot is to be shown
+     */
+    hotspot(label: Label<P>): string;
 }
