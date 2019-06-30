@@ -1,5 +1,4 @@
-import { OpenDialogOptions, FileFilter } from "electron";
-import Vue from 'vue'
+import { OpenDialogOptions, FileFilter, SaveDialogOptions } from "electron";
 
 export interface FileManager {
 
@@ -11,42 +10,17 @@ export interface FileManager {
 
     /**
      * Read a file from its path
-     * @param path path to the file
+     * @param paths parts of path to the file
      */
-    read(path: string): Promise<Buffer>
-    /**
-     * Read a file from a directory
-     * @param dir path to the directory
-     * @param filename name of the file
-     */
-    read(dir: string, filename: string): Promise<Buffer>
+    read(...paths: string[]): Promise<Buffer>
 
     /**
      * Write to a file in directory
-     * @param dir path to the directory
-     * @param filename name of the file to write
      * @param data data to be written
+     * @param paths parts of path to the file to write
      */
-    write(dir: string, filename: string, data: Buffer): Promise<void>
 
-    /**
-     * Browse the filesystem
-     * @param options open dialog options
-     */
-    browse(options: OpenDialogOptions) : Promise<{filePaths: string[], bookmarks: string[]}>
-
-    /**
-     * Save data to a new file
-     * @param data data to be saved
-     * @param title title of the file
-     */
-    save(data: Buffer, title?: string, filters?: FileFilter[], ext?:string): Promise<string>
-
-    /**
-     * Open a file from disk
-     * @param filters file filters
-     */
-    open(filters?: FileFilter[]): Promise<Buffer>
+    write(data: Buffer, ...paths: string[]): Promise<void>
 
     /**
      * Check if a path corresponds to a file or not
@@ -62,15 +36,23 @@ export interface FileManager {
 
     /**
      * Check if a path exists or not
-     * @param path path to check
+     * @param paths parts of the path (will be joined before checking)
      */
-    exists(path: string): Promise<boolean>
+    exists(...paths: string[]): Promise<boolean>
+
     /**
-     * Check whether a file exist in a directory
-     * @param dir path to the directory
-     * @param filename name of the file
+     * show the open dialog box
+     * @param {Object} options dialog options (refer electron docs)
+     * @returns promise resolving to the filepaths selected
      */
-    exists(dir: string, filename: string): Promise<boolean>
+    showOpenDialog(options: OpenDialogOptions): Promise<string[]>
+
+    /**
+     * show the save dialog box
+     * @param options save dialog options (refer electron docs)
+     * @returns promise resolving to path of file choosen for saving
+     */
+    showSaveDialog(options: SaveDialogOptions): Promise<string>
 }
 
 /**
