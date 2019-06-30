@@ -2,6 +2,7 @@
 export {Label, LabelClass, Keypoint, DEFAULT_LABEL_TYPES, Attribute, ClassAttribute, AttributeValues} from "./modules/core/labels"
 export {Frame, ProjectOptions, ProjectShortcuts, Project, ProjectFormData} from "./modules/core/project"
 export {Field, TextField, SelectField, SelectOption, FieldType, CheckboxField} from "./modules/core/forms"
+export {App} from './modules/core/app'
 
 // Managers
 export {FileManager} from './types/FileManager'
@@ -33,6 +34,7 @@ export {SimpleLabelType} from './modules/extras/label-types/SimpleLabelType'
 export {Control} from './modules/extras/control'
 export {GeneralSettings} from './modules/extras/settings'
 export {BoundboxProps, ContourProps, PolylineProps} from './modules/extras/labels/defaults'
+export {PluginOptions, PackagePluginOptions, Plugin} from './modules/extras/plugins'
 
 // factories
 export {BoundboxFactory} from './modules/extras/labels/factories'

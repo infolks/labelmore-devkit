@@ -9,11 +9,13 @@ export interface PluginOptions<T>{
     name: string
     provides: new (...args: any[]) => T
     uses: any[],
-    component?: any
+    component?: any,
 }
 
 export interface PackagePluginOptions {
     plugins: Plugin[]
+    preInstall(vue: any): void
+    postInstall(vue: any): void
 }
 
 export abstract class Plugin {
@@ -42,7 +44,8 @@ export abstract class Plugin {
 
                                 this.$projects.registerEncoder(options.name, enc)
                             }
-                        }
+                        }   
+
                     }
                 })
             }
@@ -197,10 +200,14 @@ export abstract class Plugin {
         return {
             install(Vue: any, options: any) {
 
+                options.preInstall(Vue)
+
                 for (let plugin of plugins) {
 
                     Vue.use(plugin)
                 }
+
+                options.preInstall(Vue)
             }
         }
     }

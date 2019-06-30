@@ -131,9 +131,11 @@ class Plugin {
     static Package(plugins) {
         return {
             install(Vue, options) {
+                options.preInstall(Vue);
                 for (let plugin of plugins) {
                     Vue.use(plugin);
                 }
+                options.preInstall(Vue);
             }
         };
     }

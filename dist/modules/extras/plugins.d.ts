@@ -12,6 +12,8 @@ export interface PluginOptions<T> {
 }
 export interface PackagePluginOptions {
     plugins: Plugin[];
+    preInstall(vue: any): void;
+    postInstall(vue: any): void;
 }
 export declare abstract class Plugin {
     install: (vue: any, options: any) => void;
