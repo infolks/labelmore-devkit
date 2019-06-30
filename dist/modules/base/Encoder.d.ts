@@ -1,9 +1,13 @@
 /// <reference types="node" />
 import { Frame, Project } from "../core/project";
+import { Label, LabelClass } from "../core/labels";
 export interface FileWriteInfo {
     name: string;
     subdirectory?: string;
     data: Buffer;
+}
+export interface EncodeFormat {
+    encode(label: Label<any>, labelClass?: LabelClass): any;
 }
 export declare abstract class Encoder {
     readonly title: string;

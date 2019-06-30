@@ -83,10 +83,22 @@ export interface LabelManager {
      */
     add(label: Partial<Label<any>>): void;
     /**
+     * Add label to the frame
+     * @param label label to be added
+     * @param keepHistory whether to add the change to history
+     */
+    add(label: Partial<Label<any>>, keepHistory: boolean): void;
+    /**
      * Remove a label from the frame
      * @param id id of the label to be removed
      */
     remove(id: number): void;
+    /**
+     * Remove a label from the frame
+     * @param id id of the label to be removed
+     * @param keepHistory whether to add the change to history
+     */
+    remove(id: number, keepHistory: boolean): void;
     /**
      * Update a label
      * @param id id of the label
@@ -94,21 +106,54 @@ export interface LabelManager {
      */
     update(id: number, props: Partial<Label<any>>): void;
     /**
+     * Update a label
+     * @param id id of the label
+     * @param props properties to change
+     * @param keepHistory whether to add the change to history
+     */
+    update(id: number, props: Partial<Label<any>>, keepHistory: boolean): void;
+    /**
      * Apply path to a label
      * @param id id of the label
      * @param path path to apply to label
      */
     apply(id: number, path: PathItem): void;
     /**
+     * Apply path to a label
+     * @param id id of the label
+     * @param path path to apply to label
+     * @param keepHistory whether to add the change to history
+     */
+    apply(id: number, path: PathItem, keepHistory: boolean): void;
+    /**
+     * Move selected label up by one level
+     */
+    raise(): void;
+    /**
      * Move label up by one level
      * @param id id of the label. defaults to selected label id
      */
-    raise(id?: number): void;
+    raise(id: number): void;
+    /**
+     * Move label up by one level
+     * @param id id of the label. defaults to selected label id
+     * @param keepHistory whether to add the change to history
+     */
+    raise(id: number, keepHistory: boolean): void;
+    /**
+     * Move selected label down by one level
+     */
+    fall(): void;
     /**
      * Move label down by one level
      * @param id id of the label. defaults to selected label id
      */
-    fall(id?: number): void;
+    fall(id: number): void;
+    /**
+     * Move label down by one level
+     * @param id id of the label. defaults to selected label id
+     */
+    fall(id: number, keepHistory: boolean): void;
     /**
      * Select a label
      * @param id id of the label

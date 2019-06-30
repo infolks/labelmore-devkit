@@ -4,18 +4,22 @@ import { Panel } from "../base/Panels";
 import { Source } from "../base/Source";
 import { AnnotationTool } from "../base/AnnotationTool";
 import { Wizard } from "../base/Wizard";
+import { Interface } from "../base/Interface";
 
 export interface PluginOptions<T>{
     name: string
     provides: new (...args: any[]) => T
-    uses: any[],
-    component?: any,
+    uses: any[]
+}
+
+export interface SettingsPluginOptions<T extends Interface> extends PluginOptions<T>{
+    default: any
 }
 
 export interface PackagePluginOptions {
     plugins: Plugin[]
-    preInstall(vue: any): void
-    postInstall(vue: any): void
+    preInstall?(vue: any, isSettings?:boolean): void
+    postInstall?(vue: any, isSettings?:boolean): void
 }
 
 export abstract class Plugin {
@@ -34,16 +38,16 @@ export abstract class Plugin {
                 Vue.mixin({
                     beforeCreate() {
 
-                        if (this.$projects) {
+                        if (this.$projects && !this.$projects.hasEncoder(options.name)) {
 
-                            const injects = options.uses.map(use => this[`\$${use}`])
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
 
                             const enc = new options.provides(...injects)
 
-                            if (!this.$projects.hasEncoder(options.name)) {
-
-                                this.$projects.registerEncoder(options.name, enc)
-                            }
+                            this.$projects.registerEncoder(options.name, enc)
                         }   
 
                     }
@@ -64,15 +68,16 @@ export abstract class Plugin {
                 Vue.mixin({
                     beforeCreate() {
 
-                        if (this.$labeller) {
+                        if (this.$labeller && !this.$labeller.has(options.name)) {
 
-                            const injects = options.uses.map(use => this[`\$${use}`])
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
 
                             const label = new options.provides(...injects)
 
-                            if (!this.$labeller.has(options.name)) {
-                                this.$labeller.register(options.name, label)
-                            }
+                            this.$labeller.register(options.name, label)
                         }
                     }
                 })
@@ -93,17 +98,17 @@ export abstract class Plugin {
 
                     beforeCreate() {
 
-                        if (this.$workspace) {
+                        if (this.$workspace && !this.$workspace.hasPanel(options.name)) {
                             
-                            const injects = options.uses.map(use => this[`\$${use}`])
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
 
                             const panel = new options.provides(...injects)
 
-                            if (!this.$workspace.hasPanel(options.name)) {
+                            this.$workspace.registerPanel(options.name, panel)
 
-                                this.$workspace.registerPanel(options.name, panel)
-                                Vue.component(panel.component, options.component)
-                            }
                         }
                     }
                 })
@@ -122,16 +127,16 @@ export abstract class Plugin {
                 Vue.mixin({
                     beforeCreate() {
         
-                        if (this.$projects) {
+                        if (this.$projects && !this.$projects.hasSource(options.name)) {
 
-                            const injects = options.uses.map(use => this[`\$${use}`])
-        
-                            const source = new options.provides(...injects)
-        
-                            if (!this.$projects.hasSource(options.name)) {
-        
-                                this.$projects.registerSource(options.name, source)
-                            }
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
+
+                            const source = new options.provides(...injects, this)
+    
+                            this.$projects.registerSource(options.name, source)
                         }
                     }
                 })
@@ -148,16 +153,16 @@ export abstract class Plugin {
         return {
             install(Vue: any, opts: any) {
 
-                if (this.$tools) {
+                if (this.$tools && !this.$tools.hasTool(options.name)) {
 
-                    const injects = options.uses.map(use => this[`\$${use}`])
+                    const injects = options.uses.map(use => {
+                        if (use === 'vue') return this
+                        return this[`\$${use}`]
+                    })
 
                     const tool = new options.provides(...injects)
 
-                    if (!this.$tools.hasTool(options.name)) {
-
-                        this.$tools.register(options.name, tool)
-                    }
+                    this.$tools.register(options.name, tool)
                 }
             }
         }
@@ -176,17 +181,56 @@ export abstract class Plugin {
 
                     beforeCreate() {
 
-                        if (this.$projects) {
+                        if (this.$projects && !this.$projects.hasWizard(options.name)) {
 
-                            const injects = options.uses.map(use => this[`\$${use}`])
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
 
                             const wizard = new options.provides(...injects)
 
-                            if (!this.$projects.hasWizard(options.name)) {
-                                this.$projects.registerWizard(options.name, wizard)
+                            this.$projects.registerWizard(options.name, wizard)
+                        }
+                    }
+                })
+            }
+        }
+    }
+
+    /**
+     * Register settings for your plugin
+     * @param options options of the plugin
+     */
+    static Settings<T extends Interface>(options: SettingsPluginOptions<T>) {
+
+        return {
+            install(vue: any, optns: any) {
+        
+                vue.mixin({
+                    beforeCreate() {
+        
+                        if (this.$settings) {
+        
+                            // register settings
+                            if(!this.$settings.hasSettings(options.name)) this.$settings.registerSettings(options.name, options.default)
+        
+                            // register interface
+                            if (!this.$settings.hasInterface(options.name)) {
+
+                                const injects = options.uses.map(use => {
+                                    if (use === 'vue') return this
+                                    return this[`\$${use}`]
+                                })
+        
+                                const essInterface = new options.provides(...injects)
+
+                                this.$settings.registerInterface(options.name, essInterface)
+
                             }
                         }
                     }
+        
                 })
             }
         }
@@ -200,14 +244,14 @@ export abstract class Plugin {
         return {
             install(Vue: any, options: any) {
 
-                options.preInstall(Vue)
+                if (options.preInstall) options.preInstall(Vue)
 
                 for (let plugin of plugins) {
 
                     Vue.use(plugin)
                 }
 
-                options.preInstall(Vue)
+                if (options.postInstall) options.preInstall(Vue)
             }
         }
     }

@@ -4,16 +4,19 @@ import { Panel } from "../base/Panels";
 import { Source } from "../base/Source";
 import { AnnotationTool } from "../base/AnnotationTool";
 import { Wizard } from "../base/Wizard";
+import { Interface } from "../base/Interface";
 export interface PluginOptions<T> {
     name: string;
     provides: new (...args: any[]) => T;
     uses: any[];
-    component?: any;
+}
+export interface SettingsPluginOptions<T extends Interface> extends PluginOptions<T> {
+    default: any;
 }
 export interface PackagePluginOptions {
     plugins: Plugin[];
-    preInstall(vue: any): void;
-    postInstall(vue: any): void;
+    preInstall?(vue: any, isSettings?: boolean): void;
+    postInstall?(vue: any, isSettings?: boolean): void;
 }
 export declare abstract class Plugin {
     install: (vue: any, options: any) => void;
@@ -47,6 +50,13 @@ export declare abstract class Plugin {
      * @param options options of the plugin
      */
     static Wizard<T extends Wizard>(options: PluginOptions<T>): Plugin;
+    /**
+     * Register settings for your plugin
+     * @param options options of the plugin
+     */
+    static Settings<T extends Interface>(options: SettingsPluginOptions<T>): {
+        install(vue: any, optns: any): void;
+    };
     /**
      * Register plugin package
      * @param plugins array of plugins to package

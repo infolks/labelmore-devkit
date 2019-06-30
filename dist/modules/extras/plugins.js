@@ -10,12 +10,14 @@ class Plugin {
             install(Vue, opts) {
                 Vue.mixin({
                     beforeCreate() {
-                        if (this.$projects) {
-                            const injects = options.uses.map(use => this[`\$${use}`]);
+                        if (this.$projects && !this.$projects.hasEncoder(options.name)) {
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue')
+                                    return this;
+                                return this[`\$${use}`];
+                            });
                             const enc = new options.provides(...injects);
-                            if (!this.$projects.hasEncoder(options.name)) {
-                                this.$projects.registerEncoder(options.name, enc);
-                            }
+                            this.$projects.registerEncoder(options.name, enc);
                         }
                     }
                 });
@@ -31,12 +33,14 @@ class Plugin {
             install(Vue, opts) {
                 Vue.mixin({
                     beforeCreate() {
-                        if (this.$labeller) {
-                            const injects = options.uses.map(use => this[`\$${use}`]);
+                        if (this.$labeller && !this.$labeller.has(options.name)) {
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue')
+                                    return this;
+                                return this[`\$${use}`];
+                            });
                             const label = new options.provides(...injects);
-                            if (!this.$labeller.has(options.name)) {
-                                this.$labeller.register(options.name, label);
-                            }
+                            this.$labeller.register(options.name, label);
                         }
                     }
                 });
@@ -52,13 +56,14 @@ class Plugin {
             install(Vue, opts) {
                 Vue.mixin({
                     beforeCreate() {
-                        if (this.$workspace) {
-                            const injects = options.uses.map(use => this[`\$${use}`]);
+                        if (this.$workspace && !this.$workspace.hasPanel(options.name)) {
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue')
+                                    return this;
+                                return this[`\$${use}`];
+                            });
                             const panel = new options.provides(...injects);
-                            if (!this.$workspace.hasPanel(options.name)) {
-                                this.$workspace.registerPanel(options.name, panel);
-                                Vue.component(panel.component, options.component);
-                            }
+                            this.$workspace.registerPanel(options.name, panel);
                         }
                     }
                 });
@@ -74,12 +79,14 @@ class Plugin {
             install(Vue, opts) {
                 Vue.mixin({
                     beforeCreate() {
-                        if (this.$projects) {
-                            const injects = options.uses.map(use => this[`\$${use}`]);
-                            const source = new options.provides(...injects);
-                            if (!this.$projects.hasSource(options.name)) {
-                                this.$projects.registerSource(options.name, source);
-                            }
+                        if (this.$projects && !this.$projects.hasSource(options.name)) {
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue')
+                                    return this;
+                                return this[`\$${use}`];
+                            });
+                            const source = new options.provides(...injects, this);
+                            this.$projects.registerSource(options.name, source);
                         }
                     }
                 });
@@ -93,12 +100,14 @@ class Plugin {
     static Tool(options) {
         return {
             install(Vue, opts) {
-                if (this.$tools) {
-                    const injects = options.uses.map(use => this[`\$${use}`]);
+                if (this.$tools && !this.$tools.hasTool(options.name)) {
+                    const injects = options.uses.map(use => {
+                        if (use === 'vue')
+                            return this;
+                        return this[`\$${use}`];
+                    });
                     const tool = new options.provides(...injects);
-                    if (!this.$tools.hasTool(options.name)) {
-                        this.$tools.register(options.name, tool);
-                    }
+                    this.$tools.register(options.name, tool);
                 }
             }
         };
@@ -112,11 +121,42 @@ class Plugin {
             install(Vue, opts) {
                 Vue.mixin({
                     beforeCreate() {
-                        if (this.$projects) {
-                            const injects = options.uses.map(use => this[`\$${use}`]);
+                        if (this.$projects && !this.$projects.hasWizard(options.name)) {
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue')
+                                    return this;
+                                return this[`\$${use}`];
+                            });
                             const wizard = new options.provides(...injects);
-                            if (!this.$projects.hasWizard(options.name)) {
-                                this.$projects.registerWizard(options.name, wizard);
+                            this.$projects.registerWizard(options.name, wizard);
+                        }
+                    }
+                });
+            }
+        };
+    }
+    /**
+     * Register settings for your plugin
+     * @param options options of the plugin
+     */
+    static Settings(options) {
+        return {
+            install(vue, optns) {
+                vue.mixin({
+                    beforeCreate() {
+                        if (this.$settings) {
+                            // register settings
+                            if (!this.$settings.hasSettings(options.name))
+                                this.$settings.registerSettings(options.name, options.default);
+                            // register interface
+                            if (!this.$settings.hasInterface(options.name)) {
+                                const injects = options.uses.map(use => {
+                                    if (use === 'vue')
+                                        return this;
+                                    return this[`\$${use}`];
+                                });
+                                const essInterface = new options.provides(...injects);
+                                this.$settings.registerInterface(options.name, essInterface);
                             }
                         }
                     }
@@ -131,11 +171,13 @@ class Plugin {
     static Package(plugins) {
         return {
             install(Vue, options) {
-                options.preInstall(Vue);
+                if (options.preInstall)
+                    options.preInstall(Vue);
                 for (let plugin of plugins) {
                     Vue.use(plugin);
                 }
-                options.preInstall(Vue);
+                if (options.postInstall)
+                    options.preInstall(Vue);
             }
         };
     }
