@@ -27,6 +27,7 @@ export declare type AttributeValues = {
 export interface Keypoint {
     name: string;
     classes: string[];
+    connections: string[];
 }
 export declare const DEFAULT_LABEL_TYPES: {
     boundbox: string;

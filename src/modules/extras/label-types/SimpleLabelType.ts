@@ -38,7 +38,7 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
         if (this.workspace.activateControlsLayer()) {
 
             // if successfully activated the controls layer place the controls
-            this.controls(path).forEach((control: any, index: number) => {
+            (<any>this.controls(path)).forEach((control: any, index: number) => {
 
                 const controlPoint = (<Control>control).hotspot || control
                 const thumbPoint = (<Control>control).thumb || controlPoint

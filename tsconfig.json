@@ -9,6 +9,11 @@
         "allowSyntheticDefaultImports": true,
         "declaration": true
     },
+    "typedocOptions": {
+        "mode": "file",
+        "out": "docs",
+        "json": "docs/output.json"
+    },
     "include": [
         "./src/**/*"
     ]

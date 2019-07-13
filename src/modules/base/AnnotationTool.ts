@@ -13,6 +13,9 @@ export const DEFAULT_ANNOTATION_TOOL_OPTIONS: AnnotationToolOptions = {
     limitToArtboard: false
 }
 
+/**
+ * Base class for creating annotation tools
+ */
 export abstract class AnnotationTool {
     
     public readonly name: string;

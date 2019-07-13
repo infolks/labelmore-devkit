@@ -32,6 +32,7 @@ export type AttributeValues = {[key:string]:string[]}
 export interface Keypoint {
     name: string;
     classes: string[];
+    connections: string[];
 }
 
 export const DEFAULT_LABEL_TYPES = {

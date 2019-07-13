@@ -7,6 +7,9 @@ export interface AnnotationToolOptions {
     limitToArtboard: boolean;
 }
 export declare const DEFAULT_ANNOTATION_TOOL_OPTIONS: AnnotationToolOptions;
+/**
+ * Base class for creating annotation tools
+ */
 export declare abstract class AnnotationTool {
     protected workspace: WorkspaceManager;
     protected settings: SettingsManager;

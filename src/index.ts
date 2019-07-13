@@ -27,7 +27,6 @@ export {Panel, PanelInfo, PanelOptions} from './modules/base/Panels'
 export {Source, SourceInfo} from './modules/base/Source'
 export {WizardOptions, WizardInfo, WizardType, Wizard, DEFAULT_WIZARD_OPTIONS} from './modules/base/Wizard'
 
-
 // extras
 export {BasicLabelType, BasicLabelTypeOptions, DEFAULT_BASIC_LABEL_TYPE_OPTIONS} from './modules/extras/label-types/BasicLabelType'
 export {SimpleLabelType} from './modules/extras/label-types/SimpleLabelType'

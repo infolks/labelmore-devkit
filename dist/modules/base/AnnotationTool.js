@@ -5,6 +5,9 @@ exports.DEFAULT_ANNOTATION_TOOL_OPTIONS = {
     showGuide: true,
     limitToArtboard: false
 };
+/**
+ * Base class for creating annotation tools
+ */
 class AnnotationTool {
     constructor(workspace, settings, paper) {
         this.workspace = workspace;
