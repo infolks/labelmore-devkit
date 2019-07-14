@@ -1,6 +1,6 @@
 import { BasicLabelType } from "./BasicLabelType";
 import { Control } from "../control";
-import { PathItem, Path, Point, Rectangle, Size, Color } from "paper";
+import { Item, Path, Point, Rectangle, Size, Color } from "paper";
 import { Label } from "../../core/labels";
 
 export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
@@ -9,7 +9,7 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
      * Specify controls for the label
      * @param path path corresponding to a label
      */
-    abstract controls(path: PathItem): Control[] | Point[]
+    abstract controls(path: Item): Control[] | Point[]
 
     /**
      * Select a label
@@ -17,7 +17,7 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
      * @param path path correspondin to the label
      * @param ratio ratio of visible viewport
      */
-    select(label: Label<P>, path: Path, ratio: number) {
+    select(label: Label<P>, path: Item, ratio: number) {
         path.selected = true
 
         // create controls
@@ -27,7 +27,7 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
     // =============
     //   PROTECTED
     // ============
-    private createControls(label: Label<P>, path: PathItem, ratio: number) {
+    private createControls(label: Label<P>, path: Item, ratio: number) {
 
         const controlRadius = this.settings.general.workspace.control.radius;
 

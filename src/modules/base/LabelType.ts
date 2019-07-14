@@ -1,4 +1,4 @@
-import { PathItem } from "paper";
+import { Item } from "paper";
 import { Label } from "../core/labels";
 
 export abstract class LabelType<P> {
@@ -13,14 +13,14 @@ export abstract class LabelType<P> {
      * Covnert label to path on workspace
      * @param label label to be rendered
      */
-    abstract render(label: Label<P>): PathItem;
+    abstract render(label: Label<P>): Item;
 
     /**
      * Convert a path on workspace to label
      * @param path path to be converted
      * @return the props value of the label
      */
-    abstract apply(path: PathItem): P;
+    abstract apply(path: Item): P;
 
     /**
      * hotspot information for the label

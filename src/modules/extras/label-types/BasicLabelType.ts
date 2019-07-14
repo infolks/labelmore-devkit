@@ -1,4 +1,4 @@
-import { Group, Color, Path, Point, PathItem, Item, PointText, PaperScope } from "paper";
+import { Color, Point, Item, PaperScope } from "paper";
 import { LabelManager } from "../../../types/LabelManager";
 import { WorkspaceManager } from "../../../types/WorkspaceManager";
 import { SettingsManager } from "../../../types/SettingsManager";
@@ -47,9 +47,9 @@ export abstract class BasicLabelType<P> extends LabelType<P> {
      * Converting label to vector
      * @param label label to be converted to a vector
      */
-    abstract vectorize(label: Label<P>): PathItem;
+    abstract vectorize(label: Label<P>): Item;
 
-    abstract select(label: Label<P>, path: PathItem, ratio: number): void;
+    abstract select(label: Label<P>, path: Item, ratio: number): void;
 
     /**
      * text to be shown on tag
@@ -63,7 +63,7 @@ export abstract class BasicLabelType<P> extends LabelType<P> {
      * Render a label to workspace
      * @param label label to be rendered
      */
-    render(label: Label<P>): PathItem {
+    render(label: Label<P>): Item {
 
         const path = this.vectorize(label);
 
@@ -110,7 +110,7 @@ export abstract class BasicLabelType<P> extends LabelType<P> {
      * @param path path created from label
      * @param ratio ratio based on the zoom of the workspace
      */
-    protected showLabelTag(label: Label<P>, path: PathItem, ratio: number) {
+    protected showLabelTag(label: Label<P>, path: Item, ratio: number) {
 
         const class_ = this.labeller.getClass(label.class_id)
 

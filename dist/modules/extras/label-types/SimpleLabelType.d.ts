@@ -1,20 +1,20 @@
 import { BasicLabelType } from "./BasicLabelType";
 import { Control } from "../control";
-import { PathItem, Path, Point } from "paper";
+import { Item, Point } from "paper";
 import { Label } from "../../core/labels";
 export declare abstract class SimpleLabelType<P> extends BasicLabelType<P> {
     /**
      * Specify controls for the label
      * @param path path corresponding to a label
      */
-    abstract controls(path: PathItem): Control[] | Point[];
+    abstract controls(path: Item): Control[] | Point[];
     /**
      * Select a label
      * @param label label to be selected
      * @param path path correspondin to the label
      * @param ratio ratio of visible viewport
      */
-    select(label: Label<P>, path: Path, ratio: number): void;
+    select(label: Label<P>, path: Item, ratio: number): void;
     private createControls;
     /**
      * Limit motions inside the artboard

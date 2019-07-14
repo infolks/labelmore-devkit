@@ -1,5 +1,5 @@
 import { LabelClass, Label, Keypoint, Attribute, ClassAttribute, AttributeValues } from "../modules/core/labels";
-import { PathItem } from "paper";
+import { Item } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 
 export interface LabelManager {
@@ -62,7 +62,7 @@ export interface LabelManager {
      * Render a label using its label type
      * @param label Label to be rendered
      */
-    render(label: Label<any>): PathItem
+    render(label: Label<any>): Item
 
     /**
      * Get a label corresponding to the id
@@ -138,14 +138,14 @@ export interface LabelManager {
      * @param id id of the label
      * @param path path to apply to label
      */
-    apply(id: number, path: PathItem): void
+    apply(id: number, path: Item): void
     /**
      * Apply path to a label
      * @param id id of the label
      * @param path path to apply to label
      * @param keepHistory whether to add the change to history
      */
-    apply(id: number, path: PathItem, keepHistory: boolean): void
+    apply(id: number, path: Item, keepHistory: boolean): void
 
     /**
      * Move selected label up by one level
