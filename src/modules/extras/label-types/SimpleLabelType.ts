@@ -31,6 +31,10 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
 
         const controlRadius = this.settings.general.workspace.control.radius;
 
+        const class_ = this.labeller.getClass(label.class_id)
+
+        const color = new Color(class_.color)
+
         // controls should be on top
         // there is a dedicated control layer to keep controls
         // we will activate it via workspace manager
@@ -46,8 +50,15 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
                 let controlBounds: Rectangle = control.bounds || new Rectangle(controlPoint, new Size(0,0))
     
                 const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius*ratio)
-                controlPath.style = path.style
-                controlPath.fillColor = new Color(path.strokeColor.toString())
+
+                controlPath.style = {
+                    strokeColor: color,
+                    fillColor: this.options.hasFill? new Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity): null,
+                    strokeWidth: this.labelPrefs.stroke.width * ratio,
+                    selectedColor: color
+                }
+
+                controlPath.fillColor = new Color(color.toString())
                 controlPath.fillColor.alpha = 0.3
     
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL
