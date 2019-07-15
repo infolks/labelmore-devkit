@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es6",
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true
+    },
+    "typedocOptions": {
+        "mode": "file",
+        "out": "docs",
+        "json": "docs/output.json"
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
