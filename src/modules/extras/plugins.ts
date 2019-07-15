@@ -153,17 +153,21 @@ export abstract class Plugin {
         return {
             install(Vue: any, opts: any) {
 
-                if (this.$tools && !this.$tools.hasTool(options.name)) {
+                Vue.mixin({
+                    beforeCreate() {
+                        if (this.$tools && !this.$tools.hasTool(options.name)) {
 
-                    const injects = options.uses.map(use => {
-                        if (use === 'vue') return this
-                        return this[`\$${use}`]
-                    })
-
-                    const tool = new options.provides(...injects)
-
-                    this.$tools.register(options.name, tool)
-                }
+                            const injects = options.uses.map(use => {
+                                if (use === 'vue') return this
+                                return this[`\$${use}`]
+                            })
+        
+                            const tool = new options.provides(...injects)
+        
+                            this.$tools.register(options.name, tool)
+                        }
+                    }
+                })
             }
         }
     }
