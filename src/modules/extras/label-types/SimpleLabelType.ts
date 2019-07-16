@@ -50,16 +50,13 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
                 let controlBounds: Rectangle = control.bounds || new Rectangle(controlPoint, new Size(0,0))
     
                 const controlPath = new this.paper.Path.Circle(thumbPoint, controlRadius*ratio)
-
+                
+                // set style of path
                 controlPath.style = {
                     strokeColor: color,
-                    fillColor: this.options.hasFill? new Color(color.red, color.green, color.blue, this.labelPrefs.fill.opacity): null,
-                    strokeWidth: this.labelPrefs.stroke.width * ratio,
-                    selectedColor: color
+                    fillColor: new Color(color.red, color.green, color.blue, 0.3),
+                    strokeWidth: 2 * ratio
                 }
-
-                controlPath.fillColor = new Color(color.toString())
-                controlPath.fillColor.alpha = 0.3
     
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL
 
