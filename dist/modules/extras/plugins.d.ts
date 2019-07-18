@@ -61,5 +61,5 @@ export declare abstract class Plugin {
      * Register plugin package
      * @param plugins array of plugins to package
      */
-    static Package(plugins: Plugin[]): Plugin;
+    static Package(options: PackagePluginOptions): Plugin;
 }

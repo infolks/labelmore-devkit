@@ -172,12 +172,12 @@ class Plugin {
      * Register plugin package
      * @param plugins array of plugins to package
      */
-    static Package(plugins) {
+    static Package(options) {
         return {
-            install(Vue, options) {
+            install(Vue, opts) {
                 if (options.preInstall)
                     options.preInstall(Vue);
-                for (let plugin of plugins) {
+                for (let plugin of options.plugins) {
                     Vue.use(plugin);
                 }
                 if (options.postInstall)
