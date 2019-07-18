@@ -244,13 +244,13 @@ export abstract class Plugin {
      * Register plugin package
      * @param plugins array of plugins to package
      */
-    static Package(plugins: Plugin[]): Plugin {
+    static Package(options: PackagePluginOptions): Plugin {
         return {
-            install(Vue: any, options: any) {
+            install(Vue: any, opts: any) {
 
                 if (options.preInstall) options.preInstall(Vue)
 
-                for (let plugin of plugins) {
+                for (let plugin of options.plugins) {
 
                     Vue.use(plugin)
                 }
