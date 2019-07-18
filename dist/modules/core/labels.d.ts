@@ -33,4 +33,5 @@ export declare const DEFAULT_LABEL_TYPES: {
     boundbox: string;
     contour: string;
     line: string;
+    keypoint: string;
 };

@@ -55,7 +55,7 @@ export abstract class SimpleLabelType<P> extends BasicLabelType<P> {
                 controlPath.style = {
                     strokeColor: color,
                     fillColor: new Color(color.red, color.green, color.blue, 0.3),
-                    strokeWidth: 2 * ratio
+                    strokeWidth: this.labelPrefs.stroke.width * ratio
                 }
     
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL

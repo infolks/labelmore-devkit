@@ -36,7 +36,7 @@ class SimpleLabelType extends BasicLabelType_1.BasicLabelType {
                 controlPath.style = {
                     strokeColor: color,
                     fillColor: new paper_1.Color(color.red, color.green, color.blue, 0.3),
-                    strokeWidth: 2 * ratio
+                    strokeWidth: this.labelPrefs.stroke.width * ratio
                 };
                 controlPath.data.index = this.workspace.RESERVED_ITEMS.CONTROL;
                 // UPDATE CONTROLS ON PATH CHANGE

@@ -27,6 +27,7 @@ export interface ClassAttribute extends Attribute {
     multi: boolean;
 }
 
+
 export type AttributeValues = {[key:string]:string[]}
 
 export interface Keypoint {
@@ -36,7 +37,8 @@ export interface Keypoint {
 }
 
 export const DEFAULT_LABEL_TYPES = {
-    boundbox: 'types.default.bndbox',
-    contour: 'types.default.contour',
-    line: 'types.default.line'
+    boundbox    : 'types.default.bndbox',
+    contour     : 'types.default.contour',
+    line        : 'types.default.line',
+    keypoint    : 'types.default.keypoint'
 }

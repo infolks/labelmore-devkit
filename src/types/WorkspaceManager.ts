@@ -1,4 +1,4 @@
-import { Rectangle, Point, View, Path, PathItem, Layer } from "paper";
+import { Rectangle, Point, View, Path, Item, Layer } from "paper";
 import { PanelInfo, Panel } from "../modules/base/Panels";
 import { Label } from "../modules/core/labels";
 
@@ -178,6 +178,6 @@ export interface WorkspaceManager {
      * Get path of a label
      * @param label label whose corresponding path is to be found
      */
-    getPath(label: Label<any>): PathItem
+    getPath(label: Label<any>): Item
 
 }
