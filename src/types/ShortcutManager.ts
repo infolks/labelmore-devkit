@@ -1,5 +1,9 @@
 import { ProjectShortcuts } from "../modules/core/project";
 
+
+/**
+ * The blueprint of the app's shortcut manager.
+ */
 export interface ShortcutManager {
 
     /**

@@ -5,6 +5,10 @@ import { SettingsManager } from "../../../types/SettingsManager";
 import { LabelType } from "../../base/LabelType";
 import { Label, LabelClass } from "../../core/labels";
 
+
+/**
+ * Options interface for basic label type
+ */
 export interface BasicLabelTypeOptions {
     showLabelTag: boolean;
     labelTagPosition?: 'center'|'topLeft'|'topRight'|'bottomLeft'|'bottomRight'|'leftCenter'|'topCenter'|'rightCenter'|'bottomCenter';
@@ -12,6 +16,9 @@ export interface BasicLabelTypeOptions {
     hasFill: boolean;
 }
 
+/**
+ * Default options for basic label types
+ */
 export const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions = {
     showLabelTag: true,
     labelTagPosition: 'topLeft',
@@ -19,6 +26,9 @@ export const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions = {
     hasFill: true
 }
 
+/**
+ * An abstract class forming a base for basic label type
+ */
 export abstract class BasicLabelType<P> extends LabelType<P> {
 
     public options: Partial<BasicLabelTypeOptions> = DEFAULT_BASIC_LABEL_TYPE_OPTIONS

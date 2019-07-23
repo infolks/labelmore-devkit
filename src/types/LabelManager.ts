@@ -2,6 +2,9 @@ import { LabelClass, Label, Keypoint, Attribute, ClassAttribute, AttributeValues
 import { Item } from "paper";
 import { LabelType } from "../modules/base/LabelType";
 
+/**
+ * The blueprint of the app's label manager.
+ */
 export interface LabelManager {
 
     /**

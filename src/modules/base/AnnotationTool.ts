@@ -281,6 +281,9 @@ export abstract class AnnotationTool {
 
 }
 
+/**
+ * Short info about the annotation tool
+ */
 export interface AnnotationToolInfo {
     name: string
     icon: string

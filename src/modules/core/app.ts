@@ -10,6 +10,9 @@ import { ToolManager } from "../../types/ToolManager";
 import { UIManager } from "../../types/UIManager";
 import { WorkspaceManager } from "../../types/WorkspaceManager";
 
+/**
+ * The main app interface
+ */
 export interface App {
     $actions: ActionManager
     $files: FileManager

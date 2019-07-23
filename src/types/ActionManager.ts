@@ -1,7 +1,16 @@
+/**
+ * The action function
+ */
 export type Action = (...args: any[]) => any
 
+/**
+ * A recorder snapshot of an action
+ */
 export type ActionSnapshot = {name: string, args: any[]}
 
+/**
+ * The blueprint of the app's action manager
+ */
 export interface ActionManager {
 
     /**

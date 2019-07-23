@@ -1,3 +1,6 @@
+/**
+ * Field Type
+ */
 export type FieldType = 'text' | 'select' | 'checkbox'
 
 /**

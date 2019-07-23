@@ -1,3 +1,7 @@
+/**
+ * An abstract class forming a base for creating source plugins.
+ * Source plugins are used to add functionality to retrieve inputs from different source.
+ */
 export abstract class Source {
 
     public readonly title: string;
@@ -29,6 +33,9 @@ export abstract class Source {
 
 }
 
+/**
+ * Short info about the source
+ */
 export interface SourceInfo {
     name: string
     title: string

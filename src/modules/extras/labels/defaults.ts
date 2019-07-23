@@ -1,4 +1,7 @@
 
+/**
+ * Properties of default bounding box label
+ */
 export interface BoundboxProps{
     xmin: number
     ymin: number
@@ -6,6 +9,9 @@ export interface BoundboxProps{
     ymax: number
 }
 
+/**
+ * Properties of default contour label
+ */
 export interface ContourProps{
     points: {
         x: number
@@ -13,6 +19,9 @@ export interface ContourProps{
     }[]
 }
 
+/**
+ * Properties of default polyline label
+ */
 export interface PolylineProps {
     points: {
         x: number

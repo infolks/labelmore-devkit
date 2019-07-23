@@ -2,11 +2,19 @@ import { Rectangle, Point, View, Path, Item, Layer } from "paper";
 import { PanelInfo, Panel } from "../modules/base/Panels";
 import { Label } from "../modules/core/labels";
 
+/**
+ * The workspace guide interface
+ */
 export interface WorkspaceGuide {
     horizontal: Path
     vertical: Path
     position: Point
 }
+
+
+/**
+ * The blueprint of the app's workspace manager.
+ */
 export interface WorkspaceManager {
 
     /**

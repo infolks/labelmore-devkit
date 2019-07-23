@@ -1,3 +1,7 @@
+
+/**
+ * The blueprint of the app's user interface manager.
+ */
 export interface UIManager {
 
     /**

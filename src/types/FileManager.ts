@@ -1,5 +1,8 @@
 import { OpenDialogOptions, FileFilter, SaveDialogOptions } from "electron";
 
+/**
+ * The blueprint of the app's file manager
+ */
 export interface FileManager {
 
     /**

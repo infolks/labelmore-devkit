@@ -1,5 +1,9 @@
 import { AnnotationTool, AnnotationToolInfo } from "../modules/base/AnnotationTool";
 
+
+/**
+ * The blueprint of the app's tool manager.
+ */
 export interface ToolManager {
 
     /**

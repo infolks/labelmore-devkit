@@ -49,15 +49,27 @@ export abstract class Wizard {
         return []
     }
 
+    /**
+     * Input function of a wizard used to filter or modify input data from source (entire project)
+     * @param title title of the project
+     * @param dir the chosed directory path
+     * @param files files loaded from dir
+     * @param options project options selected
+     */
     abstract async input(title: string, dir: string, files: string[], options: any): Promise<Project>;
 
+    /**
+     * Load function of a wizard used to filter or modify input data from source (single frame)
+     * @param data the frame image data
+     * @param options project options
+     */
     abstract async load(data: Buffer, options: any): Promise<Buffer>;
 
     
 }
 
 /**
- * Information about a wizard
+ * Short info about a wizard
  */
 export interface WizardInfo {
     name: string

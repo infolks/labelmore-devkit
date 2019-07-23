@@ -1,3 +1,6 @@
+/**
+ * The blueprint of the app's process manager.
+ */
 export interface ProcessManager {
 
     /**

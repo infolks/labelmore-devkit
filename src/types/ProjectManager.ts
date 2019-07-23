@@ -4,6 +4,9 @@ import { Source, SourceInfo } from "../modules/base/Source";
 import { Encoder, EncoderInfo } from "../modules/base/Encoder";
 import { Field } from "../modules/core/forms";
 
+/**
+ * The blueprint of the app's project manager.
+ */
 export interface ProjectManager {
 
     /**

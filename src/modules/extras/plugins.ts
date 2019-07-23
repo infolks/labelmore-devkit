@@ -6,16 +6,25 @@ import { AnnotationTool } from "../base/AnnotationTool";
 import { Wizard } from "../base/Wizard";
 import { Interface } from "../base/Interface";
 
+/**
+ * Options for creating a plugin
+ */
 export interface PluginOptions<T>{
     name: string
     provides: new (...args: any[]) => T
     uses: any[]
 }
 
+/**
+ * Options for settings plugin
+ */
 export interface SettingsPluginOptions<T extends Interface> extends PluginOptions<T>{
     default: any
 }
 
+/**
+ * Options for creating a plugin package
+ */
 export interface PackagePluginOptions {
     plugins: Plugin[]
     preInstall?(vue: any, isSettings?:boolean): void

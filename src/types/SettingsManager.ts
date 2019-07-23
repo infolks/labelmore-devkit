@@ -1,6 +1,9 @@
 import { Interface, InterfaceInfo } from "../modules/base/Interface";
-import Vue from 'vue'
 import { GeneralSettings } from "../modules/extras/settings";
+
+/**
+ * The blueprint of the app's settings manager.
+ */
 export interface SettingsManager {
 
     /**
