@@ -2,7 +2,7 @@ import { Interface, InterfaceInfo } from "../modules/base/Interface";
 import { GeneralSettings } from "../modules/extras/settings";
 
 /**
- * The blueprint of the app's settings manager.
+ * The blueprint of the app's settings manager. Injectible name **settings**.
  */
 export interface SettingsManager {
 

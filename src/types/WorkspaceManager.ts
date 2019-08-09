@@ -13,7 +13,7 @@ export interface WorkspaceGuide {
 
 
 /**
- * The blueprint of the app's workspace manager.
+ * The blueprint of the app's workspace manager. Injectible name **workspace**
  */
 export interface WorkspaceManager {
 

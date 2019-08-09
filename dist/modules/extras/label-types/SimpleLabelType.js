@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const BasicLabelType_1 = require("./BasicLabelType");
 const paper_1 = require("paper");
+/**
+ * An abstract class extended from basic label type providing extra functionalities
+ */
 class SimpleLabelType extends BasicLabelType_1.BasicLabelType {
     /**
      * Select a label

@@ -85,6 +85,9 @@ export declare abstract class AnnotationTool {
      */
     private limitToArtboard;
 }
+/**
+ * Short info about the annotation tool
+ */
 export interface AnnotationToolInfo {
     name: string;
     icon: string;

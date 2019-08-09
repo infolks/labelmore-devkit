@@ -9,7 +9,7 @@ export type Action = (...args: any[]) => any
 export type ActionSnapshot = {name: string, args: any[]}
 
 /**
- * The blueprint of the app's action manager
+ * The blueprint of the app's action manager. Injectible name **actions**.
  */
 export interface ActionManager {
 

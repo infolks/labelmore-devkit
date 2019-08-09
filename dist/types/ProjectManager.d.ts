@@ -3,6 +3,9 @@ import { Wizard, WizardType, WizardInfo } from "../modules/base/Wizard";
 import { Source, SourceInfo } from "../modules/base/Source";
 import { Encoder, EncoderInfo } from "../modules/base/Encoder";
 import { Field } from "../modules/core/forms";
+/**
+ * The blueprint of the app's project manager. Injectible name **projects**.
+ */
 export interface ProjectManager {
     /**
      * current frame of the project

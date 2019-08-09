@@ -2,7 +2,7 @@ import { IpcRenderer } from "electron";
 import Vue, {ComponentOptions} from 'vue'
 
 /**
- * The blue print of the app's ipc controller
+ * The blue print of the app's ipc controller. Injectible name **ipc**
  */
 export interface IpcWrapper {
 

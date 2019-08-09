@@ -1,1 +1,1 @@
-{"version":3,"file":"Panels.js","sourceRoot":"","sources":["../../../src/modules/base/Panels.ts"],"names":[],"mappings":";;AAIA,MAAsB,KAAK;IAA3B;QAKoB,YAAO,GAAiB;YACpC,SAAS,EAAE,IAAI;SAClB,CAAA;IAEL,CAAC;CAAA;AATD,sBASC"}
+{"version":3,"file":"Panels.js","sourceRoot":"","sources":["../../../src/modules/base/Panels.ts"],"names":[],"mappings":";;AAOA;;;GAGG;AACH,MAAsB,KAAK;IAA3B;QAKoB,YAAO,GAAiB;YACpC,SAAS,EAAE,IAAI;SAClB,CAAA;IAEL,CAAC;CAAA;AATD,sBASC"}

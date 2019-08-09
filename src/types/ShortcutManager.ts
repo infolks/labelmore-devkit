@@ -2,7 +2,7 @@ import { ProjectShortcuts } from "../modules/core/project";
 
 
 /**
- * The blueprint of the app's shortcut manager.
+ * The blueprint of the app's shortcut manager. Injectible name **shortcuts**.
  */
 export interface ShortcutManager {
 

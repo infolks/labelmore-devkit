@@ -2,7 +2,7 @@ import { AnnotationTool, AnnotationToolInfo } from "../modules/base/AnnotationTo
 
 
 /**
- * The blueprint of the app's tool manager.
+ * The blueprint of the app's tool manager. Injectible name **tools**
  */
 export interface ToolManager {
 

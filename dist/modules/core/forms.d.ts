@@ -1,3 +1,6 @@
+/**
+ * Field Type
+ */
 export declare type FieldType = 'text' | 'select' | 'checkbox';
 /**
  * Option in a select field

@@ -2,6 +2,9 @@ import { BasicLabelType } from "./BasicLabelType";
 import { Control } from "../control";
 import { Item, Point } from "paper";
 import { Label } from "../../core/labels";
+/**
+ * An abstract class extended from basic label type providing extra functionalities
+ */
 export declare abstract class SimpleLabelType<P> extends BasicLabelType<P> {
     /**
      * Specify controls for the label

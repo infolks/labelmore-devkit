@@ -1,3 +1,6 @@
+/**
+ * The blueprint of the app's user interface manager. Injectible name **ui**.
+ */
 export interface UIManager {
     /**
      * Whether app is in loading state or not (readonly)

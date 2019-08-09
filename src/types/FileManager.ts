@@ -1,7 +1,7 @@
 import { OpenDialogOptions, FileFilter, SaveDialogOptions } from "electron";
 
 /**
- * The blueprint of the app's file manager
+ * The blueprint of the app's file manager. Injectible name **files**
  */
 export interface FileManager {
 

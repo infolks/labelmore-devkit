@@ -1,6 +1,6 @@
 
 /**
- * The blueprint of the app's user interface manager.
+ * The blueprint of the app's user interface manager. Injectible name **ui**.
  */
 export interface UIManager {
 

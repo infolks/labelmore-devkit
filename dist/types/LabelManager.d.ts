@@ -1,6 +1,9 @@
 import { LabelClass, Label, Keypoint, ClassAttribute, AttributeValues } from "../modules/core/labels";
 import { Item } from "paper";
 import { LabelType } from "../modules/base/LabelType";
+/**
+ * The blueprint of the app's label manager. Injectible name **labeller**
+ */
 export interface LabelManager {
     /**
      * The current selected label class (Read Only)
@@ -152,6 +155,7 @@ export interface LabelManager {
     /**
      * Move label down by one level
      * @param id id of the label. defaults to selected label id
+     * @param keepHistory whether to add the change to history
      */
     fall(id: number, keepHistory: boolean): void;
     /**

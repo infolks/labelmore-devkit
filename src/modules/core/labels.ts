@@ -1,3 +1,4 @@
+import { Field } from "./forms";
 
 /**
  * The label interface
@@ -31,11 +32,8 @@ export interface Attribute {
 /**
  * Class Attribute interface
  */
-export interface ClassAttribute extends Attribute {
-    name: string;
-    values: string[];
+export interface ClassAttribute extends Field {
     classes: string[];
-    multi: boolean;
 }
 
 /**

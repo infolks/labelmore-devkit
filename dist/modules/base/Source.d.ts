@@ -1,4 +1,8 @@
 /// <reference types="node" />
+/**
+ * An abstract class forming a base for creating source plugins.
+ * Source plugins are used to add functionality to retrieve inputs from different source.
+ */
 export declare abstract class Source {
     readonly title: string;
     readonly icon: string;
@@ -23,6 +27,9 @@ export declare abstract class Source {
      */
     abstract write(data: Buffer, ...paths: string[]): Promise<void>;
 }
+/**
+ * Short info about the source
+ */
 export interface SourceInfo {
     name: string;
     title: string;

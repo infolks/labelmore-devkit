@@ -1,8 +1,17 @@
+/**
+ * The action function
+ */
 export declare type Action = (...args: any[]) => any;
+/**
+ * A recorder snapshot of an action
+ */
 export declare type ActionSnapshot = {
     name: string;
     args: any[];
 };
+/**
+ * The blueprint of the app's action manager. Injectible name **actions**.
+ */
 export interface ActionManager {
     /**
      * Push an action to stack

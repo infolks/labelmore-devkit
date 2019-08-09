@@ -4,13 +4,22 @@ import { WorkspaceManager } from "../../../types/WorkspaceManager";
 import { SettingsManager } from "../../../types/SettingsManager";
 import { LabelType } from "../../base/LabelType";
 import { Label, LabelClass } from "../../core/labels";
+/**
+ * Options interface for basic label type
+ */
 export interface BasicLabelTypeOptions {
     showLabelTag: boolean;
     labelTagPosition?: 'center' | 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight' | 'leftCenter' | 'topCenter' | 'rightCenter' | 'bottomCenter';
     hideTagOnSelect: boolean;
     hasFill: boolean;
 }
+/**
+ * Default options for basic label types
+ */
 export declare const DEFAULT_BASIC_LABEL_TYPE_OPTIONS: BasicLabelTypeOptions;
+/**
+ * An abstract class forming a base for basic label type
+ */
 export declare abstract class BasicLabelType<P> extends LabelType<P> {
     protected labeller: LabelManager;
     protected workspace: WorkspaceManager;

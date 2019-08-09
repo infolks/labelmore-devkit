@@ -5,7 +5,7 @@ import { Encoder, EncoderInfo } from "../modules/base/Encoder";
 import { Field } from "../modules/core/forms";
 
 /**
- * The blueprint of the app's project manager.
+ * The blueprint of the app's project manager. Injectible name **projects**.
  */
 export interface ProjectManager {
 

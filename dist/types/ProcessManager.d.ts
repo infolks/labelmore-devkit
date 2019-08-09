@@ -1,4 +1,11 @@
+/**
+ * The blueprint of the app's process manager. Injectible name **process**
+ */
 export interface ProcessManager {
+    /**
+     * The electron app
+     */
+    app: any;
     /**
      * Execute a python script file.
      * @note python has to be installed in the target system

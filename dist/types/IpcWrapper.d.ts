@@ -1,4 +1,7 @@
 import { IpcRenderer } from "electron";
+/**
+ * The blue print of the app's ipc controller. Injectible name **ipc**
+ */
 export interface IpcWrapper {
     ipc: IpcRenderer;
     /**

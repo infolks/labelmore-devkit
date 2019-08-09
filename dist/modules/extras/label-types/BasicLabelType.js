@@ -2,12 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const paper_1 = require("paper");
 const LabelType_1 = require("../../base/LabelType");
+/**
+ * Default options for basic label types
+ */
 exports.DEFAULT_BASIC_LABEL_TYPE_OPTIONS = {
     showLabelTag: true,
     labelTagPosition: 'topLeft',
     hideTagOnSelect: true,
     hasFill: true
 };
+/**
+ * An abstract class forming a base for basic label type
+ */
 class BasicLabelType extends LabelType_1.LabelType {
     // protected readonly defaultStrokeWidth: number = 1
     // protected readonly fillColorAlpha: number = 0.3

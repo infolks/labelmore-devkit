@@ -1,3 +1,6 @@
+/**
+ * The general settings interface
+ */
 export interface GeneralSettings {
     workspace: {
         zoom: {

@@ -1,5 +1,8 @@
 /// <reference types="node" />
 import { OpenDialogOptions, SaveDialogOptions } from "electron";
+/**
+ * The blueprint of the app's file manager. Injectible name **files**
+ */
 export interface FileManager {
     /**
      * List files in a directory
